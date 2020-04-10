@@ -17,7 +17,6 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 // API ROUTES GO HERE  
 
-
 // CATCH ALL ROUTE
 app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
