@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import userService from '../../utils/userService';
 
 class LoginPage extends Component {
     state = {
@@ -8,11 +9,22 @@ class LoginPage extends Component {
     };
 
     handleChange = (e) => {
-
+        this.setState({
+            [e.target.name]: e.target.value
+        })
     }
 
-    handleSubmit = (e) => {
+
+    handleSubmit = async (e) => {
         e.preventDefault();
+        try {
+            await userService.login(this.state);
+            this.props.handleSignupOrLogin();
+            this.props.history.push('/');
+        } catch (err) {
+            // USE A MODAL OR TOAST INSTEAD OF ALERT 
+            alert('Invalid Credentials!');
+        }
     }
 
     render() {

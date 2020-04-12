@@ -1,0 +1,19 @@
+.NavBar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.NavBar-link {
+    text-decoration: none;
+    margin: 10px;
+    color: black;
+}
+
+.NavBar-left {
+    margin-left: 15px;
+}
+
+.NavBar-right {
+    margin-right: 15px;
+}
