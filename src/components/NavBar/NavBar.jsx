@@ -18,12 +18,10 @@ const NavBar = (props) => {
     return (
         <div className="NavBar">
             <div className="NavBar-left">
-                &nbsp;
                 <Link className="NavBar-link" to="/about">About</Link>
             </div>
             <div className="NavBar-right">
                 {nav}
-                &nbsp;
             </div>
         </div>
     );

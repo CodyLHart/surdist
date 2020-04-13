@@ -7,13 +7,15 @@ import SignUpPage from '../SignUpPage/SignUpPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
 import NavBar from '../../components/NavBar/NavBar';
+import Cart from '../../components/Cart/Cart';
 
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      user: userService.getUser()
+      user: userService.getUser(),
+      cartVisible: true
     }
   }
 
@@ -43,30 +45,38 @@ class App extends Component {
             handleLogout={this.handleLogout}
           />
         </header>
+        <main>
+          <div className="page">
+            <Switch>
+              <Route exact path = '/' render={() => 
+                <HomePage className="page"/>
+              }/>
+              <Route exact path = '/about' render={() => 
+                <AboutPage className="page" />
+              }/>
+              <Route exact path = '/signup' render={({ history }) => 
+                <SignUpPage
+                  classname="page" 
+                  history={history}
+                  handleSignupOrLogin={this.handleSignupOrLogin}
+                />
+              }/>
+              <Route exact path = '/login' render={({ history }) => 
+                <LoginPage 
+                  classname="page"
+                  history={history}
+                  handleSignupOrLogin={this.handleSignupOrLogin}
+                />
+              }/>
+            </Switch>
+          </div>
+
+          <Cart 
+          cartVisible={this.state.cartVisible}
+          />
+        </main>
         
-        <Switch>
-          <Route exact path = '/' render={() => 
-            <HomePage />
-          }/>
-          <Route exact path = '/about' render={() => 
-            <AboutPage />
-          }/>
-          <Route exact path = '/signup' render={({ history }) => 
-            <SignUpPage 
-              history={history}
-              handleSignupOrLogin={this.handleSignupOrLogin}
-            />
-          }/>
-          <Route exact path = '/login' render={({ history }) => 
-            <LoginPage 
-              history={history}
-              handleSignupOrLogin={this.handleSignupOrLogin}
-            />
-          }/>
-        </Switch>
-        <footer>
-          <div>All Rights Reserved &copy;2020 Surdist Designs</div>
-        </footer>
+        
       </div>
     )
   }
