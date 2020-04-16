@@ -4,7 +4,8 @@ import './Cart.css';
 const Cart = (props) => {
     return(
         <div 
-        className={props.cartVisible ? "cart" : "cart-hide"}
+        className="cart"
+        id={props.cartVisible ? "" : "hidden"}
         >
             
         </div>

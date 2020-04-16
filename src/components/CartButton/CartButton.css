@@ -1,0 +1,15 @@
+.fa-shopping-cart {
+    font-size: 25px;
+    margin: 0 10px;
+    color: black;
+    /* background-color: black;
+    border-radius: 50%;
+    padding: 7px; */
+}
+.fa-shopping-cart:hover {
+    color: #806080;
+}
+
+.cart-visible {
+    color: #604060;
+}

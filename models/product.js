@@ -1,32 +1,24 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const photoSchema = new Schema ({
-    url: {
-        type: String,
-        required: true,
-    },
-}, {
-    timestamps: true
-});
-
 const productSchema = new Schema ({
     productType: {
-        type: Schema.Types.ObjectId,
-        ref: "ProductType",
-        required: true,
+        type: String,
+        // required: true,
     },
     displayName: {
         type: String,
-        required: true
+        // required: true
+    },
+    series: {
+        type: String,
+    },
+    design: {
+        type: String,
     },
     cut: {
         type: String,
-        enum: ['Unisex', 'Womens', 'Crop Top', 'Raglan'],
-    },
-    design: {
-        type: Schema.Types.ObjectId,
-        ref: "ShirtDesign"
+        enum: ['', 'Unisex', 'Womens', 'Crop Top', 'Raglan'],
     },
     material: {
         type: String,
@@ -34,31 +26,37 @@ const productSchema = new Schema ({
     color: {
         type: String,
     },
-    size: {
-        type: String,
-        enum: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
-    },
     price: {
         type: Number,
-        required: true
+        // required: true,
     },
-    stock: {
+    stockXS: {
         type: Number,
-        required: true
+        // required: true,
+    },
+    stockS: {
+        type: Number,
+        // required: true,
+    },
+    stockM: {
+        type: Number,
+        // required: true,
+    },
+    stockL: {
+        type: Number,
+        // required: true,
+    },
+    stockXL: {
+        type: Number,
+        // required: true,
     },
     sku: {
         type: String,
-        required: true
+        // required: true
     },
-    collection: {
-        type: Schema.Types.ObjectId,
-        ref: "Collection"
-    },
-    stock: {
-        type: Number,
-        required: true
-    },
-    photos: [photoSchema]
+    photo: {
+        type: String,
+    }
 }, {
     timestamps: true
 });

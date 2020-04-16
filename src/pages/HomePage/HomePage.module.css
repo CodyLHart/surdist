@@ -1,8 +1,3 @@
-.page {
-    background-color: yellow;
-    /* height: 100%; */
-}
-
 .imageFill {
     background-image: url("../../images/onepercent.png");
     width: 100%;
@@ -11,7 +6,20 @@
     background-position: top;
     background-attachment: fixed;
     background-position-y: 100px;
+    opacity: .8;
 }
+
+.imageFill2 {
+    background-image: url("../../images/nanner.jpg");
+    width: 100%;
+    height: 35vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* background-position-y: -70px; */
+    opacity: .8;
+}
+
 
 .container {
     width: 85%;
@@ -21,8 +29,44 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    z-index: 5;
 }
 
 .headerFill {
     height: 100px;
+}
+
+.series {
+    border: 4px solid black;
+    display: inline-block;
+    padding: 1.5vw 2vw .75vw 2vw;
+    margin-top: 50px;
+    font-size: 4vw;
+}
+
+.kim {
+    color: white;
+    position: fixed;
+    top: 125px;
+    left: 0;
+    text-align: left;
+    font-size: 8vw;
+    margin: 0;
+    z-index: 0;
+    /* text-shadow: 0px 0px 10px rgba(2, 2, 2, .4); */
+}
+
+
+.container {
+    z-index: 2;
+    background-color: white;
+}
+
+.topImg {
+    min-height: 400px;
+}
+
+.whiteBG {
+    background-color: white;
+    z-index: 3;
 }

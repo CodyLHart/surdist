@@ -1,12 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import styles from './AboutPage.module.css'
 
 
 const AboutPage = (props) => {
     return (
-        <div>
-            <h2>About Page</h2>
-            <Link to='/'>To Home Page!</Link>
+        <div className={styles.page}>
+            <div className={styles.headerFill}></div>
+            <div className={styles.imageFill}><h1 className={styles.tmm}>THE<br/>MILK<br/>MEN</h1></div>
+            <div>
+                <h1>TESTING TESTIN</h1>
+            </div>
         </div>
     )
 }

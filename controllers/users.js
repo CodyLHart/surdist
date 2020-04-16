@@ -4,7 +4,8 @@ const SECRET = process.env.SECRET;
 
 module.exports = {
     signup,
-    login
+    login,
+    createJWT
 };
 
 async function signup(req, res) {

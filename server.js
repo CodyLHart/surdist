@@ -17,6 +17,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 // API ROUTES GO HERE  
 app.use('/api/users', require('./routes/api/users'));
+app.use('/api/admin', require('./routes/api/admin'));
 
 
 // CATCH ALL ROUTE

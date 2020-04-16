@@ -10,12 +10,33 @@
     text-decoration: none;
     margin: 0 10px;
     color: black;
+    font-weight: 500;
+}
+
+.NavBar-link:hover {
+    cursor: pointer;
+    color: #604060;
 }
 
 .NavBar-left {
-    margin-left: 15px;
+    /* margin-left: 15px; */
+    position: absolute;
+    bottom: 0;
+    left: 15px;
 }
 
 .NavBar-right {
-    margin-right: 15px;
+    /* margin-right: 15px; */
+    position: absolute;
+    bottom: 0;
+    right: 15px;
+}
+
+span {
+    font-weight: 500;
+    font-size: 14px;
+    background-color: #604060;
+    color: white;
+    padding: 7px 6px 3px 6px;
+    border-radius: 12px;
 }

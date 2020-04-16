@@ -1,13 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './NavBar.css'
+import CartButton from '../CartButton/CartButton';
 
 const NavBar = (props) => {
     let nav = props.user ?
         <div>
-            <Link className="NavBar-link" to="/">Home</Link>
+            {/* <Link className="NavBar-link" to="/">Home</Link> */}
             <Link className="NavBar-link" to='' onClick={props.handleLogout}>Log Out</Link>
-            <span>Welcome, {props.user.name}</span>
+            <span>WELCOME, {props.user.name.toUpperCase()}</span>
+            <CartButton 
+                cartVisible={props.cartVisible}
+                handleCartButton={props.handleCartButton}
+            />
         </div>
         :
         <div>
@@ -19,9 +24,14 @@ const NavBar = (props) => {
         <div className="NavBar">
             <div className="NavBar-left">
                 <Link className="NavBar-link" to="/about">About</Link>
+                <Link className="NavBar-link" to="/shirts">Shirts</Link>
+                <Link className="NavBar-link" to="/not-shirts">Not Shirts</Link>
+                <Link className="NavBar-link" to="/contact">Contact</Link>
+                <Link className="NavBar-link" to="/admin">Admin</Link>
             </div>
             <div className="NavBar-right">
                 {nav}
+                
             </div>
         </div>
     );
