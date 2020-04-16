@@ -44,6 +44,28 @@ class App extends Component {
     this.setState({user: userService.getUser()});
   }
 
+  handleUpdateProduct = async (data) => {
+    try {
+      const updatedProduct = await adminService.updateProduct(data);
+      const newProductsArray = this.state.products.map(p => 
+        p._id === updatedProduct._id ? updatedProduct : p
+      );
+      this.setState(
+        {products: newProductsArray},
+        () => this.props.history.push('/admin/inventory')
+      );
+    } catch(err) {
+      console.log(err);
+    }
+  }
+
+  handleDeleteProduct = async (product) => {
+    await adminService.deleteProduct(product);
+    this.setState(state => ({
+      products: state.products.filter(p => p._id !== product._id)
+    }), () => this.props.history.push('/'));
+  }
+
   render() {
     return (
       <div className="App">
@@ -80,7 +102,10 @@ class App extends Component {
               }/>
               <Route path = '/admin' render={({ history }) => 
                 <AdminPage 
+                  products={this.state.products}
                   history={history}
+                  handleUpdateProduct={this.handleUpdateProduct}
+                  handleDeleteProduct={this.handleDeleteProduct}
                 />
               }/>
               <Route exact path = '/signup' render={({ history }) => 

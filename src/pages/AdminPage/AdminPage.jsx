@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import './AdminPage.css'
 import NewProductForm from '../../components/NewProductForm/NewProductForm';
+import EditProductForm from '../../components/EditProductForm/EditProductForm';
 import adminService from '../../utils/adminService';
 import InventorySheet from '../../components/InventorySheet/InventorySheet';
 import { Switch, Route } from 'react-router-dom';
 import AdminNav from '../../components/AdminNav/AdminNav';
 
 class AdminPage extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-            products: [],
+            products: props.products,
             currentProduct: null,
         }
     }
@@ -39,6 +40,8 @@ class AdminPage extends Component {
                         <Route exact path = '/admin/inventory' render={() =>
                             <InventorySheet 
                                 products={this.state.products}
+                                handleUpdateProduct={this.props.handleUpdateProduct}
+                                handleDeleteProduct={this.props.handleDeleteProduct}
                             />
                         }/>
                         <Route exact path = '/admin/new' render={() =>
@@ -46,8 +49,8 @@ class AdminPage extends Component {
                                 history={this.props.history}
                             />
                         }/>
-                        <Route exact path = '/admin/edit' render={() =>
-                            <NewProductForm 
+                        <Route path = '/admin/product/:id' render={() =>
+                            <EditProductForm 
                                 history={this.props.history}
                             />
                         }/>

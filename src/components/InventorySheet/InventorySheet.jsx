@@ -1,22 +1,16 @@
 import React from 'react';
 import './InventorySheet.css'
-// import { Link } from 'react-router-dom';
+
+import InventoryRow from '../InventoryRow/InventoryRow';
 
 const InventorySheet = (props) => {
     const products = (
         props.products.map((p, idx) => (
-            <tr>
-                <td>{p.design}</td>
-                <td>{p.series}</td>
-                <td>{p.cut}</td>
-                <td>{p.color}</td>
-                <td>{p.stockXS}</td>
-                <td>{p.stockS}</td>
-                <td>{p.stockM}</td>
-                <td>{p.stockL}</td>
-                <td>{p.stockXL}</td>
-                <td>{p.sku}</td>
-            </tr>
+            <InventoryRow 
+                product={p}
+                handleUpdateProduct={props.handleUpdateProduct}
+                handleDeleteProduct={props.handleDeleteProduct}
+            />
         ))
     )
 

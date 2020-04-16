@@ -7,7 +7,7 @@ const AboutPage = (props) => {
     return (
         <div className={styles.page}>
             <div className={styles.headerFill}></div>
-            <div className={styles.imageFill}><h1 className={styles.tmm}>THE<br/>MILK<br/>MEN</h1></div>
+            <div className={styles.imageFill}><h1 className={styles.tmm}>THE MILK MEN</h1></div>
             <div>
                 <h1>TESTING TESTIN</h1>
             </div>

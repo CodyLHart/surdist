@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 // import userService from '../../utils/userService';
 import adminService from '../../utils/adminService';
-import './NewProductForm.css'
+import './EditProductForm.css'
 
-class NewProductForm extends Component {
+class EditProductForm extends Component {
+
     initState = {
         productType: '',
         displayName: '',
@@ -34,6 +35,11 @@ class NewProductForm extends Component {
     handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            this.setState({
+                price: parseInt(this.state.price),
+                stock: parseInt(this.state.stock)
+            }, () => console.log(this.state));
+            
             await adminService.createProduct(this.state);
             this.setState(this.initState);
             await adminService.indexProducts();
@@ -50,7 +56,7 @@ class NewProductForm extends Component {
     render() {
         return (
             <div>
-                <header>CREATE NEW PRODUCT</header>
+                <header>EDIT PRODUCT</header>
                 <form onSubmit={this.handleSubmit} className="new-product-form">
                     <label>
                         Product Type &nbsp;
@@ -130,4 +136,4 @@ class NewProductForm extends Component {
     }
 }
 
-export default NewProductForm;
+export default EditProductForm;

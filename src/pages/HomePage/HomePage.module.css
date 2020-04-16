@@ -70,3 +70,7 @@
     background-color: white;
     z-index: 3;
 }
+
+h3 {
+    z-index: 2;
+}

@@ -42,10 +42,12 @@ const HomePage = (props) => {
             <br/>
             <br/>
             <div className={styles.imageFill2}></div>
-            <h1 className={styles.series}>NOT MILK?</h1>
-            <h3>IT'S NOT ALL ABOUT THE MILK, YOU KNOW</h3>
-            <div className={styles.container}>
-                {notMilkShirtProducts}
+            <div class={styles.whiteBG}>
+                <h1 className={styles.series}>NOT MILK?</h1>
+                <h3>IT'S NOT ALL ABOUT THE MILK, YOU KNOW</h3>
+                <div className={styles.container}>
+                    {notMilkShirtProducts}
+                </div>
             </div>
         </div>
     )
