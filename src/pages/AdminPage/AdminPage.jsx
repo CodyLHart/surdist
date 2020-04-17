@@ -13,6 +13,8 @@ class AdminPage extends Component {
         this.state = {
             products: props.products,
             currentProduct: null,
+            editing: false,
+            creating: false
         }
     }
 
@@ -23,11 +25,46 @@ class AdminPage extends Component {
         });
     }
 
+    handleView = (product) => {
+        this.toggleEditing();
+        this.setState({
+            currentProduct: (this.state.currentProduct && !product) ? null : product 
+        })   
+
+    }
+
+    handleOffClick = () => {
+        if (this.state.currentProduct) {
+            this.setState({currentProduct: null})
+        } else if (this.state.creating) {
+            this.setState({creating: null})
+        }
+    }
+
+    toggleEditing = () => {
+        this.state.editing ? 
+            (this.setState({editing: false}))
+        :
+            (this.setState({editing: true}));
+
+    };
+    
+    toggleCreating = () => {
+        this.state.creating ? 
+            (this.setState({creating: false}))
+        :
+            (this.setState({creating: true}));
+
+    };
+    
+
     render() {        
         return (
-            <div className="admin-page">
+            <div onClick={() => this.handleOffClick()} className="admin-page">
                 <h1>ADMIN PAGE</h1>
-                <AdminNav />
+                <AdminNav 
+                    toggleCreating={this.toggleCreating}
+                />
                 <main className="admin-main">
                     <Switch>
                         <Route exact path = '/admin/inventory' render={() =>
@@ -36,6 +73,9 @@ class AdminPage extends Component {
                                 handleUpdateProduct={this.props.handleUpdateProduct}
                                 handleDeleteProduct={this.props.handleDeleteProduct}
                                 handleRefresh={this.props.handleRefresh}
+                                handleView={this.handleView}
+                                toggleEditing={this.toggleEditing}
+                                toggleCreating={this.toggleCreating}
                             />
                         }/>
                         <Route exact path = '/admin/new' render={() =>
@@ -43,15 +83,17 @@ class AdminPage extends Component {
                                 history={this.props.history}
                             />
                         }/>
-                        <Route path = '/admin/product/:id' render={() =>
-                            <EditProductForm 
-                                history={this.props.history}
-                                handleUpdateProduct={this.props.handleUpdateProduct}
-                                handleDeleteProduct={this.props.handleDeleteProduct}
-                                // products={this.state.products}
-                            />
-                        }/>
                     </Switch>
+                    <NewProductForm 
+                        history={this.props.history}
+                        creating={this.state.creating}
+                        cartVisible={this.props.cartVisible}
+                    />
+                    <EditProductForm 
+                        product={this.state.currentProduct}
+                        handleView={this.handleView}
+                        editing={this.state.editing}
+                    />
                 </main>
             </div>
         );

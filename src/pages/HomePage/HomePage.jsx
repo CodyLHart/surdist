@@ -2,6 +2,7 @@ import React from 'react';
 // import { Link } from 'react-router-dom';
 import styles from './HomePage.module.css';
 import ProductThumbnail from '../../components/ProductThumbnail/ProductThumbnail';
+import ProductCard from '../../components/ProductCard/ProductCard';
 
 
 
@@ -17,6 +18,7 @@ const HomePage = (props) => {
         <ProductThumbnail 
             product={shirt}
             key={idx}
+            handleViewing={props.handleViewing}
         />
     ))
     
@@ -25,12 +27,16 @@ const HomePage = (props) => {
         <ProductThumbnail 
             product={shirt}
             key={idx}
+            handleViewing={props.handleViewing}
         />
     ))
 
     return (
-        <div className={styles.page}>
+        <div className={styles.page} onClick={() => props.handleViewingNull()}>
             <div className={styles.headerFill}></div>
+            <ProductCard 
+                viewing={props.viewing}
+            />
             <div className={styles.topImg}>
                 <div className={styles.imageFill}><h1 className={styles.kim}>KEEP<br/>IT<br/>MILKY</h1></div>
             </div>

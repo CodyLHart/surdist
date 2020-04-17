@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styles from './ShirtsPage.module.css'
 import ProductThumbnail from '../../components/ProductThumbnail/ProductThumbnail';
 import adminService from '../../utils/adminService';
-import ProductCard from '../ProductCard/ProductCard';
+import ProductCard from '../../components/ProductCard/ProductCard';
 
 class ShirtsPage extends Component {
     constructor(props){
@@ -10,7 +10,6 @@ class ShirtsPage extends Component {
         this.state = {
             products: props.products,
             filtered: props.products.filter((product) => true),
-            viewing: null
         }
     };
     
@@ -27,33 +26,21 @@ class ShirtsPage extends Component {
         this.setState({filtered: filtered})
     }
 
-    handleViewing = (product) => {
-        this.state.viewing ? 
-        this.setState({
-            viewing: null
-        })
-        :
-        this.setState({
-            viewing: product 
-        })
-    }
-
-
-
-
     render() {
         const shirts = this.state.filtered.map((shirt, idx) => (
             <ProductThumbnail 
                 product={shirt}
                 key={idx}
-                handleViewing={this.handleViewing}
+                handleViewing={this.props.handleViewing}
             />
         ))
         return (
-            <div className={styles.page}>
+            <div className={styles.page} onClick={() => this.props.handleViewingNull()}>
                 <div className={styles.headerFill}></div>
                 <ProductCard 
-                    viewing={this.state.viewing}
+                    viewing={this.props.viewing}
+                    cartVisible={this.props.cartVisible}
+                    handleViewing={this.props.handleViewing}
                 />
                 <h1 className={styles.series}>SHIRTS</h1>
                 <h3>HAND PRINTED BY THE MILK MEN THEMSELVES</h3>

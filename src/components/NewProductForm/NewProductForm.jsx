@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 // import userService from '../../utils/userService';
 import adminService from '../../utils/adminService';
-import './NewProductForm.css'
+import styles from './NewProductForm.module.css'
 
 class NewProductForm extends Component {
     initState = {
@@ -49,17 +49,17 @@ class NewProductForm extends Component {
 
     render() {
         return (
-            <div>
-                <header>CREATE NEW PRODUCT</header>
-                <form onSubmit={this.handleSubmit} className="new-product-form">
+            <div onClick={(e) => e.stopPropagation()} className={this.props.creating ? styles.newProductFormCard : styles.none}>
+                <header className={styles.createHeader}>CREATE NEW PRODUCT</header>
+                <form onSubmit={this.handleSubmit} className={styles.newProductForm}>
                     <label>
-                        Product Type &nbsp;
+                        Product Type: &nbsp;
                         <select name="productType" onChange={this.handleChange}>
                             <option value={null} defaultValue></option>
-                            <option value='Shirt' defaultValue>Shirt</option>
-                            <option value='Hat' defaultValue>Hat</option>
-                            <option value='Art' defaultValue>Art</option>
-                            <option value='Other' defaultValue>Other</option>
+                            <option value='Shirt'>Shirt</option>
+                            <option value='Hat'>Hat</option>
+                            <option value='Art'>Art</option>
+                            <option value='Other'>Other</option>
                         </select>
                     </label>
                     <label>
@@ -96,23 +96,23 @@ class NewProductForm extends Component {
                     </label>
                     <label>
                         Stock XS: &nbsp;
-                        <input type="number" placeholder="5" value={this.state.stockXS} name="stockXS" onChange={this.handleChange}></input>
+                        <input type="number" placeholder="0" value={this.state.stockXS} name="stockXS" onChange={this.handleChange}></input>
                     </label>
                     <label>
                         Stock S: &nbsp;
-                        <input type="number" placeholder="5" value={this.state.stockS} name="stockS" onChange={this.handleChange}></input>
+                        <input type="number" placeholder="0" value={this.state.stockS} name="stockS" onChange={this.handleChange}></input>
                     </label>
                     <label>
                         Stock M: &nbsp;
-                        <input type="number" placeholder="5" value={this.state.stockM} name="stockM" onChange={this.handleChange}></input>
+                        <input type="number" placeholder="0" value={this.state.stockM} name="stockM" onChange={this.handleChange}></input>
                     </label>
                     <label>
                         Stock L: &nbsp;
-                        <input type="number" placeholder="5" value={this.state.stockL} name="stockL" onChange={this.handleChange}></input>
+                        <input type="number" placeholder="0" value={this.state.stockL} name="stockL" onChange={this.handleChange}></input>
                     </label>
                     <label>
                         Stock XL: &nbsp;
-                        <input type="number" placeholder="5" value={this.state.stockXL} name="stockXL" onChange={this.handleChange}></input>
+                        <input type="number" placeholder="0" value={this.state.stockXL} name="stockXL" onChange={this.handleChange}></input>
                     </label>
                     <label>
                         SKU: &nbsp;
@@ -123,7 +123,7 @@ class NewProductForm extends Component {
                         <input type="text" placeholder="Photo1 URL" value={this.state.photo1} name="photo1" onChange={this.handleChange}></input>
                     </label>
                     <br/>
-                    <button disabled={this.isFormInvalid()}>Create Product</button>
+                    <h3 className="Button" disabled={this.isFormInvalid()}>CREATE</h3>
                 </form>
             </div>
         );

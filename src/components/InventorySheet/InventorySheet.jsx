@@ -12,13 +12,16 @@ const InventorySheet = (props) => {
                 handleUpdateProduct={props.handleUpdateProduct}
                 handleDeleteProduct={props.handleDeleteProduct}
                 handleRefresh={props.handleRefresh}
+                handleView={props.handleView}
+                toggleEditing={props.toggleEditing}
             />
         ))
     )
-
+ 
     return(
         <div>
-            <h1>INVENTORY SHEET</h1>
+            <h1>INVENTORY</h1>
+            <h3 className="Button" onClick={() => props.toggleCreating()}>NEW PRODUCT</h3>
             <table>
                 <thead>
                     <tr>

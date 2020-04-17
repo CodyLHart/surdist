@@ -21,6 +21,7 @@ class App extends Component {
       user: userService.getUser(),
       cartVisible: false,
       products: [],
+      viewing: null
     }
   }
 
@@ -31,8 +32,8 @@ class App extends Component {
     });
   }
 
-  handleRefresh = async () => {
-    const products = await adminService.indexProducts();
+  handleRefresh = () => {
+    const products = adminService.indexProducts();
     this.setState({
         products: products
     });
@@ -67,6 +68,17 @@ class App extends Component {
     }
   }
 
+  handleViewing = (product) => {
+    let prod = this.state.viewing ? null : product;
+    this.setState({viewing: prod})
+  }
+  
+  handleViewingNull = () => {
+    if (this.state.viewing) {
+      this.setState({viewing: null});
+    }
+  }
+  
   handleDeleteProduct = async (product) => {
     await adminService.deleteProduct(product);
     this.setState(state => ({
@@ -103,6 +115,10 @@ class App extends Component {
               <Route exact path = '/' render={() => 
                 <HomePage 
                   products={this.state.products}
+                  handleViewing={this.handleViewing}
+                  handleViewingNull={this.handleViewingNull}
+                  viewing={this.state.viewing}
+                  cartVisible={this.state.cartVisible}
                 />
               }/>
               <Route exact path = '/about' render={() => 
@@ -111,19 +127,24 @@ class App extends Component {
               <Route exact path = '/shirts' render={() => 
                 <ShirtsPage 
                   products={this.state.products}
+                  handleViewing={this.handleViewing}
+                  handleViewingNull={this.handleViewingNull}
+                  viewing={this.state.viewing}
+                  cartVisible={this.state.cartVisible}
                 />
               }/>
               <Route path = '/admin' render={({ history }) => 
-                userService.getUser() ?
+                userService.getUser() && userService.getUser().email === 'surdistdesigns@gmail.com' ?
                 <AdminPage 
                   products={this.state.products}
                   history={history}
                   handleUpdateProduct={this.handleUpdateProduct}
                   handleDeleteProduct={this.handleDeleteProduct}
                   handleRefresh={this.handleRefresh}
+                  cartVisible={this.state.cartVisible}
                 />
                 :
-                <Redirect to='/login' />
+                <Redirect to='/' />
               }/>
               <Route exact path = '/signup' render={({ history }) => 
                 <SignUpPage

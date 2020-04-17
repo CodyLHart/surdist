@@ -11,12 +11,12 @@
 
 .headerFill {
     height: 100px;
-}
+} 
 
 .tmm {
     color: white;
     position: fixed;
-    top: 16vh;
+    top: 125px;
     /* bottom: 0; */
     left: 0;
     text-align: left;

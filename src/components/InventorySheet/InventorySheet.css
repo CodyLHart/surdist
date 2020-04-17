@@ -8,3 +8,17 @@ table, tr, th, td{
 table {
     margin: 20px;
 }
+
+.Button {
+    background-color: black;
+    color: white;
+    border-radius: 7px;
+    width: 125px;
+    margin: 0 auto;
+    cursor: pointer;
+    padding: 8px 3px 5px 3px;
+}
+
+.Button:hover {
+    background-color: #604060;
+}

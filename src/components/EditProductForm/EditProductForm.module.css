@@ -1,4 +1,8 @@
-.shirtCard {
+.editInput {
+ width: 100px;
+}
+
+.editForm {
     height: 38vw;
     width: 38vw;
     position: fixed;

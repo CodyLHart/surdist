@@ -8,7 +8,6 @@ const AdminNav = (props) => {
         <div className="AdminNav">
             <nav>
                 <Link to="/admin/inventory">Inventory</Link>
-                <Link to="/admin/new">New Product</Link>
             </nav>
         </div>
     );

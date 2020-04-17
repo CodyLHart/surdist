@@ -1,146 +1,78 @@
 import React, {Component} from 'react';
 // import userService from '../../utils/userService';
-import adminService from '../../utils/adminService';
-import './EditProductForm.css'
+// import adminService from '../../utils/adminService';
+import styles from './EditProductForm.module.css'
 
 class EditProductForm extends Component {
-
-    initState = {
-        productType: '',
-        displayName: '',
-        series: '',
-        design: '',
-        cut: '',
-        material: '',
-        color: '',
-        price: '25',
-        stockXS: '0',
-        stockS: '0',
-        stockM: '0',
-        stockL: '0',
-        stockXL: '0',
-        sku: '',
-        photo: '',
-    };
-
-    state = this.initState;
-    async componentDidMount() {
-        const product = await adminService.indexOne();
-        alert(product);
-        this.setState({
-            product: product
-        });
-    }
-
-    handleChange = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value,
-            sku: `${this.state.design.slice(0, 3).toUpperCase()}-${this.state.cut.slice(0,1).toUpperCase()}-${this.state.color.slice(0, 3).toUpperCase()}`
-        });
-    }
-
-    handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            this.setState({
-                price: parseInt(this.state.price),
-                stock: parseInt(this.state.stock)
-            }, () => console.log(this.state));
+    constructor(props) {
+        super(props);
+        this.state = {
+            editing: props.product ? true : false,
+            displayName: null,
+            series: null,
+            cut: null,
+            color: null,
+            stockXS: null,
+            stockS: null,
+            stockM: null,
+            stockL: null,
+            stockXL: null,
+            sku: null,
             
-            await adminService.createProduct(this.state);
-            this.setState(this.initState);
-            await adminService.indexProducts();
-        } catch (err) {
-            console.log(err)
         }
-        this.props.history.push('/admin/inventory');
     }
-
-    isFormInvalid() {
-        return !(this.state.productType && this.state.displayName && this.state.sku)
-    }
-
     render() {
         return (
-            <div>
-                <header>EDIT PRODUCT {this.state.product}</header>
-                <form onSubmit={this.handleSubmit} className="new-product-form">
-                    <label>
-                        Product Type &nbsp;
-                        <select name="productType" onChange={this.handleChange}>
-                            <option value={null} defaultValue></option>
-                            <option value='Shirt' defaultValue>Shirt</option>
-                            <option value='Hat' defaultValue>Hat</option>
-                            <option value='Art' defaultValue>Art</option>
-                            <option value='Other' defaultValue>Other</option>
-                        </select>
-                    </label>
-                    <label>
-                        Display Name: &nbsp;
-                        <input type="text" className="edit-input" placeholder="Display Name" value={this.state.displayName} name="displayName" onChange={this.handleChange}></input>
-                    </label>
-                    { this.state.productType === 'Shirt' ?
-                        <>
-                        <label>
-                            Series: &nbsp;
-                            <input type="text" className="edit-input" placeholder="Series" value={this.state.series} name="series" onChange={this.handleChange}></input>
-                        </label>
-                        <label>
-                            Design: &nbsp;
-                            <input type="text" className="edit-input" placeholder="Design" value={this.state.design} name="design" onChange={this.handleChange}></input>
-                        </label>
-                        <label>
-                            Cut: &nbsp;
-                            <input type="text" className="edit-input" placeholder="Cut" value={this.state.cut} name="cut" onChange={this.handleChange}></input>
-                        </label>
-                        <label>
-                            Material: &nbsp;
-                            <input type="text" className="edit-input" placeholder="Material" value={this.state.material} name="material" onChange={this.handleChange}></input>
-                        </label>
-                        <label>
-                            Color: &nbsp;
-                            <input type="text" className="edit-input" placeholder="Color" value={this.state.color} name="color" onChange={this.handleChange}></input>
-                        </label>
-                        </>
-                    : null}
-                    <label>
-                        Price: &nbsp;
-                        <input type="number" className="edit-input" placeholder="25" value={this.state.price} name="price" onChange={this.handleChange}></input>
-                    </label>
-                    <label>
-                        Stock XS: &nbsp;
-                        <input type="number" className="edit-input" placeholder="5" value={this.state.stockXS} name="stockXS" onChange={this.handleChange}></input>
-                    </label>
-                    <label>
-                        Stock S: &nbsp;
-                        <input type="number" className="edit-input" placeholder="5" value={this.state.stockS} name="stockS" onChange={this.handleChange}></input>
-                    </label>
-                    <label>
-                        Stock M: &nbsp;
-                        <input type="number" className="edit-input" placeholder="5" value={this.state.stockM} name="stockM" onChange={this.handleChange}></input>
-                    </label>
-                    <label>
-                        Stock L: &nbsp;
-                        <input type="number" className="edit-input" placeholder="5" value={this.state.stockL} name="stockL" onChange={this.handleChange}></input>
-                    </label>
-                    <label>
-                        Stock XL: &nbsp;
-                        <input type="number" className="edit-input" placeholder="5" value={this.state.stockXL} name="stockXL" onChange={this.handleChange}></input>
-                    </label>
-                    <label>
-                        SKU: &nbsp;
-                        <input type="text" className="edit-input" disabled placeholder={this.state.color} value={this.state.sku} name="sku"></input>
-                    </label>
-                    <label>
-                        PHOTO: &nbsp;
-                        <input type="text" className="edit-input" placeholder="Photo1 URL" value={this.state.photo1} name="photo1" onChange={this.handleChange}></input>
-                    </label>
-                    <br/>
-                    <button disabled={this.isFormInvalid()}>Create Product</button>
-                </form>
+            <div onClick={(e) => e.stopPropagation()} className={this.props.product ? styles.editForm : styles.none}>
+                <header>EDIT PRODUCT</header>
+                <h2>{this.props.product ? this.props.product.displayName : null}</h2>
+                <h3>{this.state.displayName}</h3>
+                <input type="text" value={this.state.displayName ? this.state.displayName : this.props.displayName} name='displayName' onChange={this.handleChange}></input>
             </div>
         );
     }
 }
 
 export default EditProductForm;
+
+
+// this.state.editing === this.props.product._id ?
+//             <tr>
+//                 <td><input type="text" value={this.state.newdisplayName ? this.state.newdisplayName : this.state.displayName} name='displayName' onChange={this.handleChange}></input></td>
+//                 <td><input type="text" value={this.state.newseries ? this.state.newseries : this.state.series} name='series' onChange={this.handleChange}></input></td>
+//                 <td><input type="text" value={this.state.new ? this.state.newcut : this.state.cut} name='cut' onChange={this.handleChange}></input></td>
+//                 <td><input type="text" value={(typeof this.state.newcolor === 'string') ? this.state.newcolor : this.state.color} name='color' onChange={this.handleChange}></input></td>
+//                 <td className={styles.number}><input className={styles.numberEdit} type="number" value={this.state.newstockXS ? this.state.newstockXS : this.state.stockXS} name='stockXS' onChange={this.handleChange}></input></td>
+//                 <td className={styles.number}><input className={styles.numberEdit} type="number" value={this.state.newstockS ? this.state.newstockS : this.state.stockS} name='stockS' onChange={this.handleChange}></input></td>
+//                 <td className={styles.number}><input className={styles.numberEdit} type="number" value={this.state.newstockM ? this.state.newstockM : this.state.stockM} name='stockM' onChange={this.handleChange}></input></td>
+//                 <td className={styles.number}><input className={styles.numberEdit} type="number" value={this.state.newstockL ? this.state.newstockL : this.state.stockL} name='stockL' onChange={this.handleChange}></input></td>
+//                 <td className={styles.number}><input className={styles.numberEdit} type="number" value={this.state.newstockXL ? this.state.newstockXL : this.state.stockXL} name='stockXL' onChange={this.handleChange}></input></td>
+//                 <td>{this.state.newsku ? this.state.newsku : this.state.sku}</td>
+//                 <td onClick={() => this.handleSave()}>SAVE</td>
+//                 <td onClick={() => this.handleCancel()}>CANCEL</td>
+//                 {/* <td><Link to={`/admin/product/${this.props.product._id}`}>Edit</Link></td> */}
+//             </tr>
+//             :
+//             <tr>
+//                 <td>{this.state.displayName}</td>
+//                 <td>{this.state.series}</td>
+//                 <td>{this.state.cut}</td>
+//                 <td>{this.state.color}</td>
+//                 <td className={styles.number}>{this.state.stockXS}</td>
+//                 <td className={styles.number}>{this.state.stockS}</td>
+//                 <td className={styles.number}>{this.state.stockM}</td>
+//                 <td className={styles.number}>{this.state.stockL}</td>
+//                 <td className={styles.number}>{this.state.stockXL}</td>
+//                 <td>{this.state.sku}</td>
+//                 <td onClick={() => this.handleEdit(this.props.product._id)}>EDIT</td>
+//                 <td onClick={() => this.props.handleView(this.props.product)}>VIEW</td>
+//                 <td onClick={() => this.toggleDeleting()}>
+//                     {this.state.deleting ? 'REALLY?' : 'DELETE'}
+//                 </td>
+//                 {this.state.deleting ? 
+//                     <>
+//                         <td onClick={() => this.toggleDeleting()}>NO</td>
+//                         <td onClick={() => (this.props.handleDeleteProduct(this.props.product))}>YES</td>
+//                     </> 
+//                     : null}
+//             </tr>

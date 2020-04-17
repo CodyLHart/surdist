@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { Component } from 'react';
 import styles from './InventoryRow.module.css';
-import adminService from '../../utils/adminService';
+// import adminService from '../../utils/adminService';
 
 class InventoryRow extends Component {
     constructor(props) {
@@ -65,7 +65,7 @@ class InventoryRow extends Component {
 
     handleEdit = (id) => {
         this.setState({editing: id})
-    }
+    } 
 
     handleSave = () => {
         let product = {...this.props.product}
@@ -81,22 +81,10 @@ class InventoryRow extends Component {
         product.sku = this.state.newsku ? this.state.newsku : this.state.sku;
 
         this.props.handleUpdateProduct(product);
-        this.reIndex();
         this.props.handleRefresh();
         this.setState({editing: null})
     }
 
-    handleView = (id) => {
-
-    }
-
-    async reIndex() {
-        const products = await adminService.indexProducts();
-        this.setState({
-            products: products
-        });
-    }
-    
     handleCancel = () => {
         let newVals = {
             newdisplayName: '',
@@ -131,7 +119,7 @@ class InventoryRow extends Component {
             <tr>
                 <td><input type="text" value={this.state.newdisplayName ? this.state.newdisplayName : this.state.displayName} name='displayName' onChange={this.handleChange}></input></td>
                 <td><input type="text" value={this.state.newseries ? this.state.newseries : this.state.series} name='series' onChange={this.handleChange}></input></td>
-                <td><input type="text" value={this.state.new ? this.state.newcut : this.state.cut} name='cut' onChange={this.handleChange}></input></td>
+                <td><input type="text" value={this.state.newcut ? this.state.newcut : this.state.cut} name='cut' onChange={this.handleChange}></input></td>
                 <td><input type="text" value={(typeof this.state.newcolor === 'string') ? this.state.newcolor : this.state.color} name='color' onChange={this.handleChange}></input></td>
                 <td className={styles.number}><input className={styles.numberEdit} type="number" value={this.state.newstockXS ? this.state.newstockXS : this.state.stockXS} name='stockXS' onChange={this.handleChange}></input></td>
                 <td className={styles.number}><input className={styles.numberEdit} type="number" value={this.state.newstockS ? this.state.newstockS : this.state.stockS} name='stockS' onChange={this.handleChange}></input></td>
@@ -156,12 +144,7 @@ class InventoryRow extends Component {
                 <td className={styles.number}>{this.state.stockXL}</td>
                 <td>{this.state.sku}</td>
                 <td onClick={() => this.handleEdit(this.props.product._id)}>EDIT</td>
-                <td><Link to={{
-                    pathname: `/admin/product/${this.props.product._id}`,
-                    viewProps: {
-                        product: this.props.product
-                    }
-                }}>VIEW</Link></td>
+                <td onClick={() => this.props.handleView(this.props.product)}>VIEW</td>
                 <td onClick={() => this.toggleDeleting()}>
                     {this.state.deleting ? 'REALLY?' : 'DELETE'}
                 </td>
