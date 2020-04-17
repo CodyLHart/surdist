@@ -9,8 +9,9 @@ import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
 import NavBar from '../../components/NavBar/NavBar';
 import Cart from '../../components/Cart/Cart';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import adminService from '../../utils/adminService';
+import ShirtsPage from '../ShirtsPage/ShirtsPage';
 
 
 class App extends Component {
@@ -24,6 +25,13 @@ class App extends Component {
   }
 
   async componentDidMount() {
+    const products = await adminService.indexProducts();
+    this.setState({
+        products: products
+    });
+  }
+
+  handleRefresh = async () => {
     const products = await adminService.indexProducts();
     this.setState({
         products: products
@@ -100,13 +108,22 @@ class App extends Component {
               <Route exact path = '/about' render={() => 
                 <AboutPage />
               }/>
+              <Route exact path = '/shirts' render={() => 
+                <ShirtsPage 
+                  products={this.state.products}
+                />
+              }/>
               <Route path = '/admin' render={({ history }) => 
+                userService.getUser() ?
                 <AdminPage 
                   products={this.state.products}
                   history={history}
                   handleUpdateProduct={this.handleUpdateProduct}
                   handleDeleteProduct={this.handleDeleteProduct}
+                  handleRefresh={this.handleRefresh}
                 />
+                :
+                <Redirect to='/login' />
               }/>
               <Route exact path = '/signup' render={({ history }) => 
                 <SignUpPage

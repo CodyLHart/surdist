@@ -23,14 +23,7 @@ class AdminPage extends Component {
         });
     }
 
-    render() {
-
-        // const productRows = this.state.products.map((name, idx) => (
-        //     <tr key={idx}>
-        //         <td>{this.state.products[idx].displayName}</td>
-        //     </tr>
-        // ));
-        
+    render() {        
         return (
             <div className="admin-page">
                 <h1>ADMIN PAGE</h1>
@@ -42,6 +35,7 @@ class AdminPage extends Component {
                                 products={this.state.products}
                                 handleUpdateProduct={this.props.handleUpdateProduct}
                                 handleDeleteProduct={this.props.handleDeleteProduct}
+                                handleRefresh={this.props.handleRefresh}
                             />
                         }/>
                         <Route exact path = '/admin/new' render={() =>
@@ -52,6 +46,9 @@ class AdminPage extends Component {
                         <Route path = '/admin/product/:id' render={() =>
                             <EditProductForm 
                                 history={this.props.history}
+                                handleUpdateProduct={this.props.handleUpdateProduct}
+                                handleDeleteProduct={this.props.handleDeleteProduct}
+                                // products={this.state.products}
                             />
                         }/>
                     </Switch>

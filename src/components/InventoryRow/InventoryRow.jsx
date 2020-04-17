@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Component } from 'react';
 import styles from './InventoryRow.module.css';
 import adminService from '../../utils/adminService';
@@ -9,6 +9,7 @@ class InventoryRow extends Component {
         super(props);
         this.state = {
             editing: null,
+            deleting: false,
             displayName: this.props.product.displayName,
             series: this.props.product.series,
             cut: this.props.product.cut,
@@ -56,14 +57,16 @@ class InventoryRow extends Component {
             newsku: null,
     }
 
+    toggleDeleting = () => {
+        this.setState({
+            deleting: this.state.deleting ? false : true
+        })
+    }
+
     handleEdit = (id) => {
         this.setState({editing: id})
     }
 
-    // handleDelete = () => {
-    //     this.props.handleDeleteProduct(this.props.product._id)
-    // }
-    
     handleSave = () => {
         let product = {...this.props.product}
         product.displayName = this.state.newdisplayName ? this.state.newdisplayName : this.state.displayName;
@@ -79,9 +82,13 @@ class InventoryRow extends Component {
 
         this.props.handleUpdateProduct(product);
         this.reIndex();
+        this.props.handleRefresh();
         this.setState({editing: null})
     }
 
+    handleView = (id) => {
+
+    }
 
     async reIndex() {
         const products = await adminService.indexProducts();
@@ -149,8 +156,21 @@ class InventoryRow extends Component {
                 <td className={styles.number}>{this.state.stockXL}</td>
                 <td>{this.state.sku}</td>
                 <td onClick={() => this.handleEdit(this.props.product._id)}>EDIT</td>
-                <td onClick={()=> this.props.handleDeleteProduct(this.props.product)}>DELETE</td>
-                {/* <td><Link to={`/admin/product/${this.props.product._id}`}>Edit</Link></td> */}
+                <td><Link to={{
+                    pathname: `/admin/product/${this.props.product._id}`,
+                    viewProps: {
+                        product: this.props.product
+                    }
+                }}>VIEW</Link></td>
+                <td onClick={() => this.toggleDeleting()}>
+                    {this.state.deleting ? 'REALLY?' : 'DELETE'}
+                </td>
+                {this.state.deleting ? 
+                    <>
+                        <td onClick={() => this.toggleDeleting()}>NO</td>
+                        <td onClick={() => (this.props.handleDeleteProduct(this.props.product))}>YES</td>
+                    </> 
+                    : null}
             </tr>
         )
     }

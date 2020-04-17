@@ -6,3 +6,7 @@
     width: 300px;
     margin: 20px auto;
 }
+
+.new-product-form input {
+    width: 100px;
+}

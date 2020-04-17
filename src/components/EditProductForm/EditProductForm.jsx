@@ -14,16 +14,23 @@ class EditProductForm extends Component {
         material: '',
         color: '',
         price: '25',
-        stockXS: '5',
-        stockS: '5',
-        stockM: '5',
-        stockL: '5',
-        stockXL: '5',
+        stockXS: '0',
+        stockS: '0',
+        stockM: '0',
+        stockL: '0',
+        stockXL: '0',
         sku: '',
         photo: '',
     };
 
     state = this.initState;
+    async componentDidMount() {
+        const product = await adminService.indexOne();
+        alert(product);
+        this.setState({
+            product: product
+        });
+    }
 
     handleChange = (e) => {
         this.setState({
@@ -56,7 +63,7 @@ class EditProductForm extends Component {
     render() {
         return (
             <div>
-                <header>EDIT PRODUCT</header>
+                <header>EDIT PRODUCT {this.state.product}</header>
                 <form onSubmit={this.handleSubmit} className="new-product-form">
                     <label>
                         Product Type &nbsp;
@@ -70,63 +77,63 @@ class EditProductForm extends Component {
                     </label>
                     <label>
                         Display Name: &nbsp;
-                        <input type="text" placeholder="Display Name" value={this.state.displayName} name="displayName" onChange={this.handleChange}></input>
+                        <input type="text" className="edit-input" placeholder="Display Name" value={this.state.displayName} name="displayName" onChange={this.handleChange}></input>
                     </label>
                     { this.state.productType === 'Shirt' ?
                         <>
                         <label>
                             Series: &nbsp;
-                            <input type="text" placeholder="Series" value={this.state.series} name="series" onChange={this.handleChange}></input>
+                            <input type="text" className="edit-input" placeholder="Series" value={this.state.series} name="series" onChange={this.handleChange}></input>
                         </label>
                         <label>
                             Design: &nbsp;
-                            <input type="text" placeholder="Design" value={this.state.design} name="design" onChange={this.handleChange}></input>
+                            <input type="text" className="edit-input" placeholder="Design" value={this.state.design} name="design" onChange={this.handleChange}></input>
                         </label>
                         <label>
                             Cut: &nbsp;
-                            <input type="text" placeholder="Cut" value={this.state.cut} name="cut" onChange={this.handleChange}></input>
+                            <input type="text" className="edit-input" placeholder="Cut" value={this.state.cut} name="cut" onChange={this.handleChange}></input>
                         </label>
                         <label>
                             Material: &nbsp;
-                            <input type="text" placeholder="Material" value={this.state.material} name="material" onChange={this.handleChange}></input>
+                            <input type="text" className="edit-input" placeholder="Material" value={this.state.material} name="material" onChange={this.handleChange}></input>
                         </label>
                         <label>
                             Color: &nbsp;
-                            <input type="text" placeholder="Color" value={this.state.color} name="color" onChange={this.handleChange}></input>
+                            <input type="text" className="edit-input" placeholder="Color" value={this.state.color} name="color" onChange={this.handleChange}></input>
                         </label>
                         </>
                     : null}
                     <label>
                         Price: &nbsp;
-                        <input type="number" placeholder="25" value={this.state.price} name="price" onChange={this.handleChange}></input>
+                        <input type="number" className="edit-input" placeholder="25" value={this.state.price} name="price" onChange={this.handleChange}></input>
                     </label>
                     <label>
                         Stock XS: &nbsp;
-                        <input type="number" placeholder="5" value={this.state.stockXS} name="stockXS" onChange={this.handleChange}></input>
+                        <input type="number" className="edit-input" placeholder="5" value={this.state.stockXS} name="stockXS" onChange={this.handleChange}></input>
                     </label>
                     <label>
                         Stock S: &nbsp;
-                        <input type="number" placeholder="5" value={this.state.stockS} name="stockS" onChange={this.handleChange}></input>
+                        <input type="number" className="edit-input" placeholder="5" value={this.state.stockS} name="stockS" onChange={this.handleChange}></input>
                     </label>
                     <label>
                         Stock M: &nbsp;
-                        <input type="number" placeholder="5" value={this.state.stockM} name="stockM" onChange={this.handleChange}></input>
+                        <input type="number" className="edit-input" placeholder="5" value={this.state.stockM} name="stockM" onChange={this.handleChange}></input>
                     </label>
                     <label>
                         Stock L: &nbsp;
-                        <input type="number" placeholder="5" value={this.state.stockL} name="stockL" onChange={this.handleChange}></input>
+                        <input type="number" className="edit-input" placeholder="5" value={this.state.stockL} name="stockL" onChange={this.handleChange}></input>
                     </label>
                     <label>
                         Stock XL: &nbsp;
-                        <input type="number" placeholder="5" value={this.state.stockXL} name="stockXL" onChange={this.handleChange}></input>
+                        <input type="number" className="edit-input" placeholder="5" value={this.state.stockXL} name="stockXL" onChange={this.handleChange}></input>
                     </label>
                     <label>
                         SKU: &nbsp;
-                        <input type="text" disabled placeholder={this.state.color} value={this.state.sku} name="sku"></input>
+                        <input type="text" className="edit-input" disabled placeholder={this.state.color} value={this.state.sku} name="sku"></input>
                     </label>
                     <label>
                         PHOTO: &nbsp;
-                        <input type="text" placeholder="Photo1 URL" value={this.state.photo1} name="photo1" onChange={this.handleChange}></input>
+                        <input type="text" className="edit-input" placeholder="Photo1 URL" value={this.state.photo1} name="photo1" onChange={this.handleChange}></input>
                     </label>
                     <br/>
                     <button disabled={this.isFormInvalid()}>Create Product</button>

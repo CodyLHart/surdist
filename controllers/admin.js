@@ -5,7 +5,8 @@ module.exports = {
     indexProducts,
     viewProduct,
     updateProduct,
-    deleteProduct
+    deleteProduct,
+    indexOne
 }
 
 
@@ -26,6 +27,11 @@ async function updateProduct(req, res) {
 
 async function indexProducts(req, res) {
     const products = await Product.find({});
+    res.json(products);
+}
+
+async function indexOne(req, res) {
+    const products = await Product.findById(req.params.id);
     res.json(products);
 }
 

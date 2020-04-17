@@ -1,0 +1,14 @@
+.shirtCard {
+    height: 38vw;
+    width: 38vw;
+    position: fixed;
+    background-color: orchid;
+    z-index: 5;
+    left: 31vw;
+    right: 31vw;
+    top: 135px;
+}
+
+.none {
+    display: none;
+}

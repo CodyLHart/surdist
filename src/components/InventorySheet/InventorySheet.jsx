@@ -7,9 +7,11 @@ const InventorySheet = (props) => {
     const products = (
         props.products.map((p, idx) => (
             <InventoryRow 
+                key={idx}
                 product={p}
                 handleUpdateProduct={props.handleUpdateProduct}
                 handleDeleteProduct={props.handleDeleteProduct}
+                handleRefresh={props.handleRefresh}
             />
         ))
     )

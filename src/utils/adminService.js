@@ -38,6 +38,16 @@ function indexProducts() {
     return fetch(`${BASE_URL}indexProducts`, options).then(res => res.json());
 }
 
+function indexOne(id) {
+    const options = {
+        method: 'GET',
+        header: {
+            'Authorization': 'Bearer ' + tokenService.getToken()
+        }
+    };
+    return fetch(`${BASE_URL}indexOne/${id}`, options).then(res => res.json());
+}
+
 function viewProduct(product) {
     const options = {
         method: 'GET',
@@ -49,7 +59,6 @@ function viewProduct(product) {
 }
 
 function deleteProduct(product) {
-    console.log('PRODUCT:', product)
     const options = {
         method: 'DELETE',
         header: {
@@ -63,6 +72,7 @@ function deleteProduct(product) {
 export default {
     createProduct,
     indexProducts,
+    indexOne,
     viewProduct,
     updateProduct,
     deleteProduct
