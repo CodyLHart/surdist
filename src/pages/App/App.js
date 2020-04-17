@@ -78,12 +78,21 @@ class App extends Component {
       this.setState({viewing: null});
     }
   }
+
+  handleSort = (newSort) => {
+    this.setState({products: newSort})
+  }
+
+  handleAddProduct = (product) => {
+    let newProds = [...this.state.products, product]
+    this.setState({products: newProds})
+  }
   
   handleDeleteProduct = async (product) => {
     await adminService.deleteProduct(product);
-    this.setState(state => ({
-      products: state.products.filter(p => p._id !== product._id)
-    }), () => this.props.history.push('/'));
+    this.setState({
+      products: this.state.products.filter(p => p._id !== product._id)
+    });
   }
 
   render() {
@@ -142,6 +151,8 @@ class App extends Component {
                   handleDeleteProduct={this.handleDeleteProduct}
                   handleRefresh={this.handleRefresh}
                   cartVisible={this.state.cartVisible}
+                  handleAddProduct={this.handleAddProduct}
+                  handleSort={this.handleSort}
                 />
                 :
                 <Redirect to='/' />

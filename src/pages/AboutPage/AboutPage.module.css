@@ -7,6 +7,9 @@
     background-attachment: fixed;
     /* background-position-y: 100px; */
     opacity: .6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .headerFill {
@@ -15,13 +18,15 @@
 
 .tmm {
     color: white;
+    background-color: rgba(0, 0, 0, .8);
     position: fixed;
-    top: 125px;
-    /* bottom: 0; */
-    left: 0;
-    text-align: left;
-    font-size: 7vw;
-    margin: 0;
+    left: auto;
+    right: auto;
+    text-align: center;
+    font-size: 4vw;
+    margin: 0 auto;
     z-index: 2;
+    border: .8vw solid white;
+    padding: 1.5vw 1.5vw 1vw 1.5vw;
     
 }

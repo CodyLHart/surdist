@@ -15,6 +15,10 @@ const ProductCard = (props) => {
             e.stopPropagation();
         }}>
             <h1>{props.viewing ? props.viewing.displayName : null}</h1>
+            <h1>{props.viewing ? props.viewing.price : null}</h1>
+            <h1>{props.viewing ? props.viewing.material : null}</h1>
+            <h1>{props.viewing ? props.viewing.cut : null}</h1>
+            <img src={`${props.viewing ? props.viewing.photo : null}`} alt="Stuff"/>
         </div>
     )
 } 

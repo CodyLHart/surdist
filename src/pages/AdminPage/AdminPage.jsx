@@ -69,13 +69,14 @@ class AdminPage extends Component {
                     <Switch>
                         <Route exact path = '/admin/inventory' render={() =>
                             <InventorySheet 
-                                products={this.state.products}
+                                products={this.props.products}
                                 handleUpdateProduct={this.props.handleUpdateProduct}
                                 handleDeleteProduct={this.props.handleDeleteProduct}
                                 handleRefresh={this.props.handleRefresh}
                                 handleView={this.handleView}
                                 toggleEditing={this.toggleEditing}
                                 toggleCreating={this.toggleCreating}
+                                handleSort={this.props.handleSort}
                             />
                         }/>
                         <Route exact path = '/admin/new' render={() =>
@@ -88,6 +89,7 @@ class AdminPage extends Component {
                         history={this.props.history}
                         creating={this.state.creating}
                         cartVisible={this.props.cartVisible}
+                        handleAddProduct={this.props.handleAddProduct}
                     />
                     <EditProductForm 
                         product={this.state.currentProduct}

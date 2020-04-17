@@ -1,26 +1,30 @@
 .shirtCard {
-    height: 30vw;
-    width: 30vw;
+    height: 35vw;
+    width: 35vw;
     position: fixed;
     background-color: orchid;
     z-index: 5;
-    left: 35vw;
-    top: 135px;
+    left: 30vw;
+    top: 20vh;
     transition: left .6s;
 }
 
 .shirtCardCart {
-    height: 30vw;
-    width: 30vw;
+    height: 35vw;
+    width: 35vw;
     position: fixed;
     background-color: orchid;
     z-index: 5;
-    left: 25vw;
-    top: 135px;
+    left: 20vw;
+    top: 20vh;
     transition: left .6s;
 }
 
 
 .none {
     display: none;
+}
+
+img {
+    height: 150px;
 }

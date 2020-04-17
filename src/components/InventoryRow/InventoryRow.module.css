@@ -1,5 +1,12 @@
 input {
     width: 100%;
+    padding-top: 0px;
+}
+
+td {
+    background-color: #404040;
+    color: white;
+    font-weight: 500;
 }
 
 .numberEdit {
@@ -17,4 +24,58 @@ td input {
     width: 50%;
     padding: 0;
     margin: 0;
+} 
+
+.edit {
+    background-color: #404070;
+    color: white;
+    cursor: pointer;
+}
+
+.edit:hover {
+    background-color: #606090;
+}
+
+.view {
+    background-color: #604060;
+    color: white;
+    cursor: pointer;
+}
+
+.view:hover {
+    background-color: #806080;
+}
+
+.delete {
+    background-color: #704040;
+    color: white;
+    cursor: pointer;
+}
+
+.delete:hover {
+    background-color: #906060;
+}
+
+.save {
+    background-color: #407040;
+    color: white;
+    cursor: pointer;
+}
+
+.save:hover {
+    background-color: #609060;
+}
+
+.cancel {
+    background-color: #704040;
+    color: white;
+    cursor: pointer;
+}
+
+.cancel:hover {
+    background-color: #906060;
+}
+
+.color {
+    filter: grayscale(40%);
 }

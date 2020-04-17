@@ -40,6 +40,7 @@ class NewProductForm extends Component {
         } catch (err) {
             console.log(err)
         }
+        this.props.handleAddProduct(this.state);
         this.props.history.push('/admin/inventory');
     }
 
@@ -123,11 +124,11 @@ class NewProductForm extends Component {
                         <input type="text" placeholder="Photo1 URL" value={this.state.photo1} name="photo1" onChange={this.handleChange}></input>
                     </label>
                     <br/>
-                    <h3 className="Button" disabled={this.isFormInvalid()}>CREATE</h3>
+                    <button className="Button" disabled={this.isFormInvalid()}>CREATE</button>
                 </form>
             </div>
         );
     }
-}
+} 
 
 export default NewProductForm;

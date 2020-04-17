@@ -1,5 +1,5 @@
 table, tr, th, td{
-    border: 1px solid black;
+    border: 2px solid white;
     box-sizing: border-box;
     border-collapse: collapse;
     padding: 10px;
@@ -7,8 +7,9 @@ table, tr, th, td{
 
 table {
     margin: 20px;
+    font-size: 1vw;
 }
-
+ 
 .Button {
     background-color: black;
     color: white;
@@ -21,4 +22,14 @@ table {
 
 .Button:hover {
     background-color: #604060;
+}
+
+th {
+    background-color: #202020;
+    color: white;
+    cursor: pointer;
+}
+
+th:hover {
+    background-color: #303030;
 }

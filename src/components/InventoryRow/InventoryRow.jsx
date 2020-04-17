@@ -127,8 +127,8 @@ class InventoryRow extends Component {
                 <td className={styles.number}><input className={styles.numberEdit} type="number" value={this.state.newstockL ? this.state.newstockL : this.state.stockL} name='stockL' onChange={this.handleChange}></input></td>
                 <td className={styles.number}><input className={styles.numberEdit} type="number" value={this.state.newstockXL ? this.state.newstockXL : this.state.stockXL} name='stockXL' onChange={this.handleChange}></input></td>
                 <td>{this.state.newsku ? this.state.newsku : this.state.sku}</td>
-                <td onClick={() => this.handleSave()}>SAVE</td>
-                <td onClick={() => this.handleCancel()}>CANCEL</td>
+                <td className={styles.save} onClick={() => this.handleSave()}>SAVE</td>
+                <td className={styles.cancel} onClick={() => this.handleCancel()}>CANCEL</td>
                 {/* <td><Link to={`/admin/product/${this.props.product._id}`}>Edit</Link></td> */}
             </tr>
             :
@@ -136,22 +136,22 @@ class InventoryRow extends Component {
                 <td>{this.state.displayName}</td>
                 <td>{this.state.series}</td>
                 <td>{this.state.cut}</td>
-                <td>{this.state.color}</td>
+                <td className={styles.color} style={{backgroundColor: this.state.color.replace(' ', '')}} >{this.state.color}</td>
                 <td className={styles.number}>{this.state.stockXS}</td>
                 <td className={styles.number}>{this.state.stockS}</td>
                 <td className={styles.number}>{this.state.stockM}</td>
                 <td className={styles.number}>{this.state.stockL}</td>
                 <td className={styles.number}>{this.state.stockXL}</td>
                 <td>{this.state.sku}</td>
-                <td onClick={() => this.handleEdit(this.props.product._id)}>EDIT</td>
-                <td onClick={() => this.props.handleView(this.props.product)}>VIEW</td>
-                <td onClick={() => this.toggleDeleting()}>
+                <td className={styles.edit} onClick={() => this.handleEdit(this.props.product._id)}>EDIT</td>
+                <td className={styles.view} onClick={() => this.props.handleView(this.props.product)}>VIEW</td>
+                <td className={styles.delete} onClick={() => this.toggleDeleting()}>
                     {this.state.deleting ? 'REALLY?' : 'DELETE'}
                 </td>
                 {this.state.deleting ? 
                     <>
-                        <td onClick={() => this.toggleDeleting()}>NO</td>
-                        <td onClick={() => (this.props.handleDeleteProduct(this.props.product))}>YES</td>
+                        <td className={styles.save} onClick={() => this.toggleDeleting()}>NO</td>
+                        <td className={styles.cancel} onClick={() => (this.props.handleDeleteProduct(this.props.product))}>YES</td>
                     </> 
                     : null}
             </tr>
@@ -159,4 +159,4 @@ class InventoryRow extends Component {
     }
 }
 
-export default InventoryRow;
+export default InventoryRow; 
