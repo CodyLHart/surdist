@@ -2,10 +2,11 @@
     height: 35vw;
     width: 35vw;
     position: fixed;
-    background-color: orchid;
+    background-color: white;
+    box-shadow: 0px 0px 30px -2px rgba(0,0,0,0.6);
     z-index: 5;
     left: 30vw;
-    top: 20vh;
+    top: 150px;
     transition: left .6s;
 }
 
@@ -13,7 +14,8 @@
     height: 35vw;
     width: 35vw;
     position: fixed;
-    background-color: orchid;
+    background-color: white;
+    box-shadow: 0px 0px 30px -2px rgba(0,0,0,0.6);
     z-index: 5;
     left: 20vw;
     top: 20vh;
@@ -25,6 +27,61 @@
     display: none;
 }
 
-img {
-    height: 150px;
+.infoImg {
+    /* height: 25vw; */
+    width: 90%;
+    /* margin: 5%; */
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+
+.infoSection {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0;
+}
+
+.infoText {
+    font-weight: 300;
+    font-family: "Century Gothic", sans-serif;
+    font-size: 1.2vw;
+    text-align: center;
+}
+
+.infoPrice {
+    font-weight: 300;
+    font-family: "Century Gothic", sans-serif;
+    font-size: 2.5vw;
+    text-align: center;
+}
+
+.infoTextSection {
+    display: flex;
+    flex-direction: column;
+}
+
+.shirtName {
+    font-family: "Century Gothic", sans-serif;
+    font-weight: 500;   
+    font-size: 3vw;
+    color: white;
+    z-index: 1;
+    width: 70%;
+    margin: 3vw auto;
+    position: absolute;
+    background-color: rgba(0,0,0,0.9);
+    border: .3vw solid white;
+    padding: .2vw .3vw .3vw .3vw;
+}
+
+.price {
+    display: flex;
+    align-items: center;
+}
+
+.name {
+    display: flex;
+    justify-content: center;
 }
