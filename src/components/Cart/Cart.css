@@ -1,0 +1,44 @@
+.cart-text {
+    font-weight: 200;
+}
+
+.cart {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart p {
+    font-size: 1vw;
+    font-weight: 400;
+    margin: .7vw 1vw;
+}
+.cart a {
+    font-size: 1vw;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: black;
+    text-decoration: none;
+}
+
+.cart a:hover {
+    color: #604060;
+}
+
+.cart h3 {
+    font-size: 2.5vw;
+    font-weight: 300;
+    margin: 10px;
+}
+
+.cart h4 {
+    font-size: 1.5vw;
+    font-weight: 300;
+    margin: 10px;
+}
+
+.cart .cart-email {
+    font-size: 1vw;
+    margin: 0;
+}

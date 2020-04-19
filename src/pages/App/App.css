@@ -77,6 +77,23 @@
   right: 0;
   position: fixed;
   /* display: none; */
+  transition: width .3s;
+}
+
+#hidden p{
+  display: none;
+}
+
+#hidden h3 {
+  display: none;
+}
+
+#hidden h4 {
+  display: none;
+}
+
+#hidden a {
+  display: none;
 }
 
 main {
