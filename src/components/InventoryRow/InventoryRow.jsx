@@ -81,7 +81,6 @@ class InventoryRow extends Component {
         product.sku = this.state.newsku ? this.state.newsku : this.state.sku;
 
         this.props.handleUpdateProduct(product);
-        this.props.handleRefresh();
         this.setState({editing: null})
     }
 

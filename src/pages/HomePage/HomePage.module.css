@@ -71,14 +71,16 @@
 
 
 .container {
-    z-index: 2;
+    z-index: 3;
     background-color: white;
+    position: relative;
 }
 
 
 .whiteBG {
     background-color: white;
     z-index: 3;
+    position: relative;
 }
 
 h3 {

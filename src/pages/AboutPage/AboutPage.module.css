@@ -10,6 +10,38 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.imageFill3 {
+    background-image: url("../../images/milks.png");
+    width: 100%;
+    height: 90vh;
+    background-size: cover;
+    background-position: top;
+    background-attachment: fixed;
+    opacity: .6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+ 
+.imageFill2 {
+    background-image: url("https://scontent.fapa1-2.fna.fbcdn.net/v/t1.0-9/46250705_632528870482473_7553289663255937024_o.jpg?_nc_cat=107&_nc_sid=dd9801&_nc_ohc=2FJXVJJcdSMAX-yA54B&_nc_ht=scontent.fapa1-2.fna&oh=ea82bdb29a10f77847bb3d8c047c607c&oe=5EBF65D3");
+    width: 100%;
+    height: 90vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: .6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
 }
 
 .headerFill {
@@ -18,15 +50,75 @@
 
 .tmm {
     color: white;
-    background-color: rgba(0, 0, 0, .8);
     position: fixed;
-    left: auto;
-    right: auto;
-    text-align: center;
+    top: 125px;
+    left: 0;
+    text-align: left;
+    font-size: 7.5vw;
+    margin: 0;
+    position: fixed;
+    z-index: 3;
+    /* text-shadow: 0px 0px 5px rgba(2, 2, 2, .3); */
+}
+
+.tmm2 {
+    color: white;
+    bottom: 0;
+    right: 0;
+    text-align: right;
+    font-size: 7.5vw;
+    margin: 0;
+    position: absolute;
+    z-index: 0;
+    /* text-shadow: 0px 0px 5px rgba(2, 2, 2, .3); */
+}
+
+
+.sectionHeadingL {
+    font-family: "Century Gothic", sans-serif;
+    font-weight: 400;
     font-size: 4vw;
-    margin: 0 auto;
-    z-index: 2;
-    border: .8vw solid white;
-    padding: 1.5vw 1.5vw 1vw 1.5vw;
-    
+    text-align: left;
+    margin-left: 8vw;
+    padding-left: 1vw;
+    width: 40vw;
+    border-bottom: 2px solid black;
+}
+
+.sectionHeadingR {
+    font-family: "Century Gothic", sans-serif;
+    font-weight: 400;
+    font-size: 4vw;
+    text-align: right;
+    margin-left: 50vw;
+    padding-right: 1vw;
+    width: 40vw;
+    border-bottom: 2px solid black;
+}
+
+.pL {
+    font-size: 1.5vw;
+    width: 70vw;
+    text-align: left;
+    margin-left: 10vw;
+    font-weight: 600;
+    font-family: "Raleway", sans-serif;
+    line-height: 2.5vw;
+    background-color: white;
+}
+
+.pR {
+    font-size: 1.5vw;
+    width: 70vw;
+    text-align: right;
+    margin-left: 20vw;
+    font-weight: 600;
+    font-family: "Raleway", sans-serif;
+    line-height: 2.5vw;
+}
+
+.textSection {
+    background-color: white;
+    z-index: 3;
+    position: relative;
 }

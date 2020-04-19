@@ -14,7 +14,7 @@ class InventorySheet extends Component {
     }
     mapProducts = () => {
         const products = (
-            this.props.products.map((p, idx) => (
+            this.state.sortedProducts.map((p, idx) => (
                 <InventoryRow 
                     key={idx}
                     product={p}
@@ -93,14 +93,14 @@ class InventorySheet extends Component {
                         <tr>
                             <th onClick={() => this.handleSort('displayName')}>Name</th>
                             <th onClick={() => this.handleSort('series')}>Series</th>
-                            <th>Cut</th>
-                            <th>Color</th>
-                            <th>XS</th>
-                            <th>S</th>
-                            <th>M</th>
-                            <th>L</th>
-                            <th>XL</th>
-                            <th>SKU</th>
+                            <th onClick={() => this.handleSort('cut')}>Cut</th>
+                            <th onClick={() => this.handleSort('color')}>Color</th>
+                            <th onClick={() => this.handleSort('stockXS')}>XS</th>
+                            <th onClick={() => this.handleSort('stockS')}>S</th>
+                            <th onClick={() => this.handleSort('stockM')}>M</th>
+                            <th onClick={() => this.handleSort('stockL')}>L</th>
+                            <th onClick={() => this.handleSort('stockXL')}>XL</th>
+                            <th onClick={() => this.handleSort('sku')}>SKU</th>
                         </tr>
                     </thead>
                     <tbody>
