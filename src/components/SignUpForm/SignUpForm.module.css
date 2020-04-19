@@ -1,19 +1,4 @@
-.login-page {
-    /* background-color: teal; */
-    padding-top: 150px;
-    width: 50vw;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-} 
-
-.login-heading {
-    font-size: 32px;
-    margin-top: 40px;
-}
-
-.login-form {
+.SignUpForm {
     margin: 20px;
     width: 50%;
     display: flex;
@@ -21,19 +6,30 @@
     align-items: center;
 }
 
-.login-form input {
+.SignUpForm input {
     width: 200px;
     font-size: 18px;
     margin: 5px;
     font-family: "Century Gothic", sans-serif;
 }
 
-.login-form button {
+.SignUpForm button {
     margin: 5px;
     margin-top: 10px;
 }
 
-.login-form-button {
+.heading {
+    font-size: 32px;
+    margin-top: 40px;
+}
+
+.SignUpPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formButton {
     font-size: 16px;
     text-transform: Uppercase;
     border: 2px solid black;
@@ -44,18 +40,18 @@
     padding: 5px;
 }
 
-.login-form-button:hover:enabled {
+.formButton:hover:enabled {
     background-color: black;
     color: white;
     cursor: pointer;
 }
 
-/* .login-form-button:disabled {
+.formButton:disabled {
     color: #909090;
     border-color: #909090;
-} */
+}
 
-.login-form-button:disabled:hover {
+.formButton:disabled:hover {
     color: #909090;
     border-color: #909090;
 }

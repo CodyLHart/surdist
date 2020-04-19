@@ -30,6 +30,7 @@ class InventoryRow extends Component {
             newstockL: null,
             newstockXL: null,
             newsku: null,
+            _id: this.props.product._id,
         }
     }
 
@@ -55,6 +56,13 @@ class InventoryRow extends Component {
             newstockL: null,
             newstockXL: null,
             newsku: null,
+    }
+
+    componentWillReceiveProps(nextProps) {
+        // You don't have to do this check first, but it can help prevent an unneeded render
+        if (nextProps.product._id !== this.state._id) {
+            this.setState({ ...this.state, ...nextProps.product });
+        }
     }
 
     toggleDeleting = () => {

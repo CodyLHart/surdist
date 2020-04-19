@@ -32,16 +32,16 @@ class LoginPage extends Component {
     render() {
         return (
             <div className="login-page">
-                <header>Log In</header>
-                <form onSubmit={this.handleSubmit}>
+                <header className="login-heading">LOG IN</header>
+                <form className="login-form" onSubmit={this.handleSubmit}>
                     <input type="email" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange}></input>
                     <input type="password" placeholder="Password" value={this.state.password} name="password" onChange={this.handleChange}></input>
-                    <button>Log In</button>
-                    <Link to='/'>Cancel</Link>
+                    <button className="login-form-button">Log In</button>
+                    <Link className="login-form-button" to='/'>Cancel</Link>
                 </form>
             </div>
         );
     }
 }
 
-export default LoginPage;
+export default LoginPage; 

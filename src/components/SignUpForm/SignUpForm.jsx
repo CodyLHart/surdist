@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import userService from '../../utils/userService'
+import userService from '../../utils/userService';
+import styles from './SignUpForm.module.css';
 
 class SignUpForm extends Component {
 
@@ -35,19 +36,19 @@ class SignUpForm extends Component {
 
     render() {
         return (
-            <div>
-                <header>Sign Up</header>
-                <form onSubmit={this.handleSubmit}>
+            <div className={styles.SignUpPage}>
+                <header className={styles.heading}>SIGN UP</header>
+                <form className={styles.SignUpForm} onSubmit={this.handleSubmit}>
                     <input type="text" placeholder="Name" value={this.state.name} name="name" onChange={this.handleChange}></input>
                     <input type="email" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange}></input>
                     <input type="password" placeholder="Password" value={this.state.password} name="password" onChange={this.handleChange}></input>
                     <input type="password" placeholder="Confirm Password" value={this.state.passwordConf} name="passwordConf" onChange={this.handleChange}></input>
-                    <button disabled={this.isFormInvalid()}>Sign Up</button>
-                    <Link to='/'>Cancel</Link>
+                    <button className={styles.formButton} disabled={this.isFormInvalid()}>Sign Up</button>
+                    <Link className={styles.formButton} to='/'>Cancel</Link>
                 </form>
             </div>
         );
     }
 }
 
-export default SignUpForm;
+export default SignUpForm; 

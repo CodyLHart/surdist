@@ -9,7 +9,7 @@ class ShirtsPage extends Component {
         super(props);
         this.state = {
             products: props.products,
-            filtered: props.products.filter((product) => true),
+            filtered: props.products,
         }
     };
     
