@@ -5,7 +5,7 @@ import styles from './NewProductForm.module.css'
 
 class NewProductForm extends Component {
     initState = {
-        productType: '',
+        productType: null,
         displayName: '',
         series: '',
         design: '',
@@ -13,11 +13,11 @@ class NewProductForm extends Component {
         material: '',
         color: '',
         price: '25',
-        stockXS: '5',
-        stockS: '5',
-        stockM: '5',
-        stockL: '5',
-        stockXL: '5',
+        stockXS: '0',
+        stockS: '0',
+        stockM: '0',
+        stockL: '0',
+        stockXL: '0',
         sku: '',
         photo: '',
     };
@@ -41,6 +41,7 @@ class NewProductForm extends Component {
             console.log(err)
         }
         this.props.handleAddProduct(this.state);
+        this.setState({productType: null})
         this.props.history.push('/admin/inventory');
     }
 
@@ -121,7 +122,7 @@ class NewProductForm extends Component {
                     </label>
                     <label>
                         PHOTO: &nbsp;
-                        <input type="text" placeholder="Photo1 URL" value={this.state.photo1} name="photo1" onChange={this.handleChange}></input>
+                        <input type="text" placeholder="Photo URL" value={this.state.photo} name="photo" onChange={this.handleChange}></input>
                     </label>
                     <br/>
                     <button className="Button" disabled={this.isFormInvalid()}>CREATE</button>
