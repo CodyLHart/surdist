@@ -6,6 +6,7 @@ import adminService from '../../utils/adminService';
 import InventorySheet from '../../components/InventorySheet/InventorySheet';
 import { Switch, Route } from 'react-router-dom';
 import AdminNav from '../../components/AdminNav/AdminNav';
+import ProductCard from '../../components/ProductCard/ProductCard'
 
 class AdminPage extends Component {
     constructor(props) {
@@ -61,10 +62,7 @@ class AdminPage extends Component {
     render() {        
         return (
             <div onClick={() => this.handleOffClick()} className="admin-page">
-                <h1>ADMIN PAGE</h1>
-                <AdminNav 
-                    toggleCreating={this.toggleCreating}
-                />
+                <br></br>
                 <main className="admin-main">
                     <Switch>
                         <Route exact path = '/admin/inventory' render={() =>
@@ -95,6 +93,11 @@ class AdminPage extends Component {
                         product={this.state.currentProduct}
                         handleView={this.handleView}
                         editing={this.state.editing}
+                        cartVisible={this.props.cartVisible}
+                    />
+                    <ProductCard 
+                        viewing={this.state.currentProduct}
+                        cartVisible={this.props.cartVisible}
                     />
                 </main>
             </div>

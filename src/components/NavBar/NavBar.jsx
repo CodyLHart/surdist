@@ -25,9 +25,9 @@ const NavBar = (props) => {
             <div className="NavBar-left">
                 <Link className="NavBar-link" to="/about">About</Link>
                 <Link className="NavBar-link" to="/shirts">Shirts</Link>
-                <Link className="NavBar-link" to="/not-shirts">Not Shirts</Link>
-                <Link className="NavBar-link" to="/contact">Contact</Link>
-                {props.user && props.user.email === 'surdistdesigns@gmail.com' && <Link className="NavBar-link" to="/admin">Admin</Link>}
+                {/* <Link className="NavBar-link" to="/not-shirts">Not Shirts</Link> */}
+                {/* <Link className="NavBar-link" to="/contact">Contact</Link> */}
+                {props.user && props.user.email === 'surdistdesigns@gmail.com' && <Link className="NavBar-link" to="/admin/inventory">Admin</Link>}
                 
             </div>
             <div className="NavBar-right">

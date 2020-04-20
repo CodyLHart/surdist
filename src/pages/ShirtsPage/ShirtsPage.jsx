@@ -17,12 +17,12 @@ class ShirtsPage extends Component {
         const products = await adminService.indexProducts();
         this.setState({
             products: products,
-            filtered: products.filter((product) => true)
+            filtered: products.filter((product) => !!product.photo )
         });
     }
 
     handleFilter = (param, match) => {
-        let filtered = this.props.products.filter((product) => product[param] === match);
+        let filtered = this.props.products.filter((product) => (product[param] === match) && product.photo);
         this.setState({filtered: filtered})
     }
 
@@ -41,6 +41,7 @@ class ShirtsPage extends Component {
                     viewing={this.props.viewing}
                     cartVisible={this.props.cartVisible}
                     handleViewing={this.props.handleViewing}
+                    handleCartButton={this.props.handleCartButton}
                 />
                 <h1 className={styles.series}>SHIRTS</h1>
                 <h3>HAND PRINTED BY THE MILK MEN THEMSELVES</h3>

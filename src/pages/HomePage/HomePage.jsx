@@ -36,6 +36,7 @@ const HomePage = (props) => {
             <div className={styles.headerFill}></div>
             <ProductCard 
                 viewing={props.viewing}
+                handleCartButton={props.handleCartButton}
             />
             <div className={styles.topImg}>
                 <div className={styles.imageFill}><h1 className={styles.kim}>KEEP<br/>IT<br/>MILKY</h1></div>

@@ -128,6 +128,7 @@ class App extends Component {
                   handleViewingNull={this.handleViewingNull}
                   viewing={this.state.viewing}
                   cartVisible={this.state.cartVisible}
+                  handleCartButton={this.handleCartButton}
                 />
               }/>
               <Route exact path = '/about' render={() => 
@@ -140,6 +141,7 @@ class App extends Component {
                   handleViewingNull={this.handleViewingNull}
                   viewing={this.state.viewing}
                   cartVisible={this.state.cartVisible}
+                  handleCartButton={this.handleCartButton}
                 />
               }/>
               <Route path = '/admin' render={({ history }) => 

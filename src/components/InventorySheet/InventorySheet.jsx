@@ -12,23 +12,6 @@ class InventorySheet extends Component {
             sortedProducts: props.products
         }
     }
-    // mapProducts = () => {
-    //     const products = (
-    //         this.state.sortedProducts.map((p, idx) => (
-    //             <InventoryRow 
-    //                 key={idx}
-    //                 product={p}
-    //                 handleUpdateProduct={this.props.handleUpdateProduct}
-    //                 handleDeleteProduct={this.props.handleDeleteProduct}
-    //                 handleRefresh={this.props.handleRefresh}
-    //                 handleView={this.props.handleView}
-    //                 toggleEditing={this.props.toggleEditing}
-    //             />
-    //         ))
-    //     )
-    //     // console.log('MORE MORE MORE TESTING===========', products)
-    //     return products;
-    // }
 
     mapProducts = () => {
         const products = (
@@ -87,27 +70,13 @@ class InventorySheet extends Component {
 
 
     render() {
-        // const products = (
-        //     this.state.sortedProducts.map((p, idx) => (
-        //         <InventoryRow 
-        //             key={idx}
-        //             product={p}
-        //             handleUpdateProduct={this.props.handleUpdateProduct}
-        //             handleDeleteProduct={this.props.handleDeleteProduct}
-        //             handleRefresh={this.props.handleRefresh}
-        //             handleView={this.props.handleView}
-        //             toggleEditing={this.props.toggleEditing}
-        //         />
-        //     ))
-        // )
 
-        // console.log('TESTING=================', this.mapProducts());
-     
         const mapped = this.mapProducts();
         console.log(mapped)
         return (
             <div>
                 <h1>INVENTORY</h1>
+                <br/>
                 <h3 className="Button" onClick={() => this.props.toggleCreating()}>NEW PRODUCT</h3>
                 <table>
                     <thead>

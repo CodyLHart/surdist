@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ProductCard from '../ProductCard/ProductCard';
 // import userService from '../../utils/userService';
 // import adminService from '../../utils/adminService';
 import styles from './EditProductForm.module.css'
@@ -24,10 +25,11 @@ class EditProductForm extends Component {
     render() {
         return (
             <div onClick={(e) => e.stopPropagation()} className={this.props.product ? styles.editForm : styles.none}>
-                <header>EDIT PRODUCT</header>
+                {/* <header>EDIT PRODUCT</header>
                 <h2>{this.props.product ? this.props.product.displayName : null}</h2>
                 <h3>{this.state.displayName}</h3>
-                <input type="text" value={this.state.displayName ? this.state.displayName : this.props.displayName} name='displayName' onChange={this.handleChange}></input>
+                <input type="text" value={this.state.displayName ? this.state.displayName : this.props.displayName} name='displayName' onChange={this.handleChange}></input> */}
+                <ProductCard />
             </div>
         );
     }

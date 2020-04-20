@@ -7,12 +7,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-top: 4vw;
 }
 
 .cart p {
     font-size: 1vw;
     font-weight: 400;
     margin: .7vw 1vw;
+    line-height: 1.4vw;
 }
 .cart a {
     font-size: 1vw;

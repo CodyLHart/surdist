@@ -4,11 +4,9 @@ const Schema = mongoose.Schema;
 const productSchema = new Schema ({
     productType: {
         type: String,
-        // required: true,
     },
     displayName: {
         type: String,
-        // required: true
     },
     series: {
         type: String,
@@ -18,7 +16,6 @@ const productSchema = new Schema ({
     },
     cut: {
         type: String,
-        enum: ['', 'Unisex', 'Womens', 'Crop Top', 'Raglan'],
     },
     material: {
         type: String,
@@ -28,33 +25,29 @@ const productSchema = new Schema ({
     },
     price: {
         type: Number,
-        // required: true,
     },
     stockXS: {
         type: Number,
-        // required: true,
     },
     stockS: {
         type: Number,
-        // required: true,
     },
     stockM: {
         type: Number,
-        // required: true,
     },
     stockL: {
         type: Number,
-        // required: true,
     },
     stockXL: {
         type: Number,
-        // required: true,
     },
     sku: {
         type: String,
-        // required: true
     },
     photo: {
+        type: String,
+    },
+    description: {
         type: String,
     }
 }, {

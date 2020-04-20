@@ -1,26 +1,26 @@
 .shirtCard {
     height: 35vw;
-    width: 35vw;
+    width: 60vw;
     position: fixed;
     background-color: white;
     box-shadow: 0px 0px 30px -2px rgba(0,0,0,0.6);
     z-index: 5;
-    left: 30vw;
+    left: 20vw;
     top: 150px;
     transition: left .6s;
 }
 
 .shirtCardCart {
     height: 35vw;
-    width: 35vw;
+    width: 60vw;
     position: fixed;
     background-color: white;
     box-shadow: 0px 0px 30px -2px rgba(0,0,0,0.6);
     z-index: 5;
-    left: 20vw;
-    top: 20vh;
+    left: 10vw;
+    top: 150px;
     transition: left .6s;
-}
+} 
 
 
 .none {
@@ -28,15 +28,12 @@
 }
 
 .infoImg {
-    /* height: 25vw; */
-    width: 94%;
-    height: 94%;
-    /* margin: 5%; */
+    width: 33vw;
+    height: 33vw;
     position: absolute;
-    top: 3%;
-    left: 3%;
+    top: 1vw;
+    left: 1vw;
     box-shadow: 0px 0px 30px -2px rgba(0,0,0,0.6);
-
 }
 
 .infoSection {
@@ -46,23 +43,16 @@
     margin: 0;
 }
 
-.infoText {
-    font-weight: 300;
-    font-family: "Century Gothic", sans-serif;
-    font-size: 1.2vw;
-    text-align: center;
-}
-
-.infoPrice {
-    font-weight: 300;
-    font-family: "Century Gothic", sans-serif;
-    font-size: 2.5vw;
-    text-align: center;
-}
-
-.infoTextSection {
+.infoTextDiv {
+    /* background-color: cadetblue; */
+    height: 33vw;
+    width: 23vw;
+    position: absolute;
+    right: 1vw;
+    top: 1vw;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .shirtName {
@@ -88,4 +78,49 @@
 .name {
     display: flex;
     justify-content: center;
+}
+
+li {
+    list-style-type: none;
+    font-size: 1.1vw;
+    margin: 1vw;
+    text-align: center;
+    
+}
+
+p {
+    font-size: 1.1vw;
+    font-weight: 300;
+    margin: 40px .8vw 0 .8vw;
+    text-align: center;
+}
+
+ul {
+    margin-top: 20px;
+    padding: 0;
+}
+
+h1 {
+    font-weight: 400;
+    font-size: 2.4vw;
+    margin-bottom: 0;
+}
+
+.addToCart {
+    font-weight: 600;
+    background-color: white;
+    color: black;
+    width: 8vw;
+    padding: 12px 10px 8px 10px;
+    border-radius: 8px;
+    margin: 0 auto;
+    border: .1vw solid black;
+    position: absolute;
+    bottom: 40px;
+    cursor: pointer;
+}
+
+.addToCart:hover {
+    background-color: black;
+    color: white;
 }
