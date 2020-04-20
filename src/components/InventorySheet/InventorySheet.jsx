@@ -35,7 +35,6 @@ class InventorySheet extends Component {
         this.setState({
             sortedProducts: products.sort(this.handleSortFunction('stockM'))
         });
-        console.log('COMPONENT DID MOUNT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
       }
 
     handleSort = (param) => {
@@ -63,9 +62,7 @@ class InventorySheet extends Component {
 
 
     render() {
-
         const mapped = this.mapProducts();
-        console.log(mapped)
         return (
             <div>
                 <h1>INVENTORY</h1>
