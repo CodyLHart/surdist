@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
 import styles from './HomePage.module.css';
 import ProductThumbnail from '../../components/ProductThumbnail/ProductThumbnail';
 import ProductCard from '../../components/ProductCard/ProductCard';
@@ -7,11 +6,6 @@ import ProductCard from '../../components/ProductCard/ProductCard';
 
 
 const HomePage = (props) => {
-    // const products = props.products.map((product) => (
-    //     <ProductThumbnail 
-    //         product={product}
-    //     />
-    // ));
 
     let milkShirts = props.products.filter((product) => product.series === 'Milk Shirts')
     const milkShirtProducts = milkShirts.map((shirt, idx) => (
@@ -53,7 +47,6 @@ const HomePage = (props) => {
             <div className={styles.topImg}>
                 <div className={styles.imageFill2}><h1 className={styles.kim}>KEEP<br/>IT<br/>MILKY</h1><h1 className={styles.kim2}>SILKY<br/>DADDY</h1></div>
             </div>
-            {/* <div className={sstyles.imageFill2}><h1 className={styles.kim2}>KEEP<br/>IT<br/>MILKY</h1></div> */}
             <div className={styles.whiteBG}>
                 <h1 className={styles.series}>NOT MILK?</h1>
                 <h3>ALL BEVERAGES MATTER...</h3>

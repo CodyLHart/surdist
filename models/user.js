@@ -3,10 +3,6 @@ const bcrypt = require('bcrypt');
 
 const SALT_ROUNDS = 6;
 
-// DONT ADD MUCH IF ANYTHING MORE TO THE USER MODEL BECAUSE
-// IT IS BEING ADDED TO THE TOKEN DATA PAYLOAD.
-// REFERENCE USER ON OTHER RELATED MODELS INSTEAD OF ON THE USER MODELS
-
 const userSchema = new mongoose.Schema({
     name: String,
     email: {

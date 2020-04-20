@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-// import userService from '../../utils/userService';
 import adminService from '../../utils/adminService';
 import styles from './NewProductForm.module.css'
 

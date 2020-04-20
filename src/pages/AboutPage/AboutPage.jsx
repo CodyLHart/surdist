@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
 import styles from './AboutPage.module.css'
 
 
@@ -24,7 +23,6 @@ const AboutPage = (props) => {
                 </p>
             </div>
             <div className={styles.imageFill}>
-                {/* <h1 className={styles.tmm}>KEEP<br/>IT<br/>MILKY</h1><h1 className={styles.tmm2}>SILKY<br/>DADDY</h1> */}
                 <h1 className={styles.tmm}>LIVE SURD</h1>
             </div>
             <div className={styles.textSection}>

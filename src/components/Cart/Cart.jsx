@@ -7,7 +7,6 @@ const Cart = (props) => {
         className="cart"
         id={props.cartVisible ? "" : "hidden"}
         >
-            {/* <h1>TESTING</h1> */}
             <h3>SORRY!</h3>
             <h4>OUR WEBSITE IS UNDERGOING CONSTRUCTION</h4>
             <p>IF YOU WOULD LIKE TO PURCHASE A SHIRT, SHOOT US AN EMAIL AT</p>

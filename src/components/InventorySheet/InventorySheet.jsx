@@ -16,9 +16,6 @@ class InventorySheet extends Component {
     mapProducts = () => {
         const products = (
             this.props.products.map((p, idx) => (
-                // <div>
-                //     <p>{p.displayName}</p>
-                // </div>
                 <InventoryRow 
                     key={idx}
                     product={p}
@@ -30,7 +27,6 @@ class InventorySheet extends Component {
                 />
             ))
         )
-        // console.log('MORE MORE MORE TESTING===========', products)
         return products;
     }
 
@@ -45,9 +41,6 @@ class InventorySheet extends Component {
     handleSort = (param) => {
         const newSort = [...this.props.products].sort(this.handleSortFunction(param))
         this.props.handleSort(newSort)
-        // this.setState({
-        //     sortedProducts: newSort
-        // });
     }
 
     handleSortFunction = (param) => {

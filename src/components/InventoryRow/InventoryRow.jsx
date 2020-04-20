@@ -1,8 +1,6 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
 import { Component } from 'react';
 import styles from './InventoryRow.module.css';
-// import adminService from '../../utils/adminService';
 
 class InventoryRow extends Component {
     constructor(props) {

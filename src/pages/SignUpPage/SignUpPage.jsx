@@ -16,7 +16,6 @@ class SignUpPage extends Component {
         return (
             <div className="sign-up-page">
                 <SignUpForm {...this.props} updateMessage={this.updateMessage}/>
-                {/* <p>{this.state.message}</p> */}
             </div>
         );
     }
