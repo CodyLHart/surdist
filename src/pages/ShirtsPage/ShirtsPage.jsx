@@ -50,7 +50,7 @@ class ShirtsPage extends Component {
                 <button className={this.state.filter === "Milk Shirts" ? styles.sel : null} onClick={() => {this.handleFilter('series', "Milk Shirts")}}>THE MILK SHIRTS</button>
                 <button className={this.state.filter === "Not Milk?" ? styles.sel : null} onClick={() => {this.handleFilter('series', "Not Milk?")}}>NOT MILK?</button>
                 <button className={this.state.filter === "Opinions" ? styles.sel : null} onClick={() => {this.handleFilter('series', "Opinions")}}>OPINIONS</button>
-                <button onClick={() => {this.handleFilter('series', "The Bread Shirts")}}>THE BREAD SHIRTS</button>
+                <button className={this.state.filter === "The Bread Shirts" ? styles.sel : null} onClick={() => {this.handleFilter('series', "The Bread Shirts")}}>THE BREAD SHIRTS</button>
                 {/* <button onClick={() => {this.handleFilter('color', "Brown")}}>BROWN</button> */}
                 <div className={styles.whiteBG}>
                     <div className={styles.container}>
