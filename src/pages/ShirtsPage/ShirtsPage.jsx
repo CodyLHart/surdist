@@ -10,6 +10,7 @@ class ShirtsPage extends Component {
         this.state = {
             products: props.products,
             filtered: props.products,
+            filter: ""
         }
     };
     
@@ -23,7 +24,7 @@ class ShirtsPage extends Component {
 
     handleFilter = (param, match) => {
         let filtered = this.props.products.filter((product) => (product[param] === match) && product.photo);
-        this.setState({filtered: filtered})
+        this.setState({filtered: filtered, filter: match})
     }
 
     render() {
@@ -45,10 +46,12 @@ class ShirtsPage extends Component {
                 />
                 <h1 className={styles.series}>SHIRTS</h1>
                 <h3>HAND PRINTED BY THE MILK MEN THEMSELVES</h3>
-                <button onClick={() => {this.handleFilter('productType', "Shirt")}}>VIEW ALL</button>
-                <button onClick={() => {this.handleFilter('series', "Milk Shirts")}}>MILK</button>
-                <button onClick={() => {this.handleFilter('series', "Not Milk?")}}>NOT MILK</button>
-                <button onClick={() => {this.handleFilter('color', "Brown")}}>BROWN</button>
+                <button className={this.state.filter === "" ? styles.sel : null} onClick={() => {this.handleFilter('productType', "Shirt")}}>VIEW ALL</button>
+                <button className={this.state.filter === "Milk Shirts" ? styles.sel : null} onClick={() => {this.handleFilter('series', "Milk Shirts")}}>THE MILK SHIRTS</button>
+                <button className={this.state.filter === "Not Milk?" ? styles.sel : null} onClick={() => {this.handleFilter('series', "Not Milk?")}}>NOT MILK?</button>
+                <button className={this.state.filter === "Opinions" ? styles.sel : null} onClick={() => {this.handleFilter('series', "Opinions")}}>OPINIONS</button>
+                <button onClick={() => {this.handleFilter('series', "The Bread Shirts")}}>THE BREAD SHIRTS</button>
+                {/* <button onClick={() => {this.handleFilter('color', "Brown")}}>BROWN</button> */}
                 <div className={styles.whiteBG}>
                     <div className={styles.container}>
                         {shirts}

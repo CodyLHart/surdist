@@ -75,3 +75,23 @@ h3 {
     z-index: 2;
 }
 
+button {
+    font-family: "Century Gothic", sans-serif;
+    font-size: 1.2vw;
+    background-color: white;
+    /* border-radius: 5px; */
+    border: 2px solid black;
+    margin: 0 10px;
+    outline: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: black;
+    color: white;
+}
+
+.sel {
+    background-color: black;
+    color: white;
+}
