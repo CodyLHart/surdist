@@ -90,9 +90,11 @@ h3 {
 @media (max-width: 992px) {
     .imageFill {
         background-attachment: scroll;
+        background-size: cover;
     }
 
     .imageFill2 {
         background-attachment: scroll;
+        background-size: cover;
     }
 }
