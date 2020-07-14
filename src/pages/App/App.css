@@ -22,6 +22,7 @@
   right: 50%;
   top: 3vh;
   color: black;
+  max-width: 90vw;
 }
 
 .App-header {
