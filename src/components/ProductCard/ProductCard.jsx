@@ -17,7 +17,7 @@ const ProductCard = (props) => {
             <div className={styles.infoSection}>
                 <img className={styles.infoImg} src={`${props.viewing ? props.viewing.photo : null}`} alt={props.viewing ? props.viewing.displayName : null}/>
                 <div className={styles.infoTextDiv}>
-                    <h1>{props.viewing ? props.viewing.displayName.toUpperCase() : null}</h1>
+                    {/* <h1>{props.viewing ? props.viewing.displayName.toUpperCase() : null}</h1> */}
                     <p>{props.viewing ? props.viewing.description : null}</p>
                     <hr/>
                     <div onClick={() => props.handleCartButton()} className={styles.addToCart}>ADD TO CART</div>
