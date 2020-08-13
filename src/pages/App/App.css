@@ -119,6 +119,10 @@ main {
     height: 40px;
     margin: 0 10px;
   }
+
+  .App-header-logo {
+    font-size: 25px;
+  }
 }
 
 
