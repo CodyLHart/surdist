@@ -113,8 +113,8 @@ h1 {
     color: black;
     font-size: 1.5vw;
     width: 8vw;
-    padding: 12px 10px 8px 10px;
-    border-radius: 8px;
+    padding: 1.2vw 1vw .8vw 1vw;
+    border-radius: .8vw;
     margin: 0 auto;
     border: .1vw solid black;
     position: absolute;
