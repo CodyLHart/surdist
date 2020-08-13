@@ -102,7 +102,7 @@ li {
 p {
     font-size: 1.1vw;
     font-weight: 300;
-    margin: 40px .8vw 0 .8vw;
+    /* margin: 0px .8vw 0 .8vw; */
     text-align: center;
 }
 
