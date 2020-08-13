@@ -25,6 +25,8 @@
   max-width: 90vw;
 }
 
+
+
 .App-header {
   position: fixed;
   background-color: white;
@@ -110,6 +112,13 @@ main {
 
 #page-cart {
   width: 80%;
+}
+
+@media(max-width: 450px){
+  .logo {
+    height: 40px;
+    margin: 0 10px;
+  }
 }
 
 
