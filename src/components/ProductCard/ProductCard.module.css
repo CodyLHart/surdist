@@ -55,12 +55,12 @@
 .infoTextDiv {
     /* background-color: cadetblue; */
     height: 33vw;
-    width: 23vw;
+    width: 50vw;
     min-width: 250;
     min-height: 350;
     /* position: absolute; */
-    right: 1vw;
-    top: 1vw;
+    /* right: 1vw;
+    top: 1vw; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -132,10 +132,10 @@ h1 {
     width: 8vw;
     padding: 1.2vw 1vw .8vw 1vw;
     border-radius: .8vw;
-    margin: 0 auto;
+    margin: 0 auto 20px auto;
     border: .1vw solid black;
     /* position: absolute; */
-    bottom: 25px;
+    /* bottom: 25px; */
     cursor: pointer;
 }
 
