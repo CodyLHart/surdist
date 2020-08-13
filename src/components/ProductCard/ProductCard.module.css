@@ -47,6 +47,8 @@
     /* background-color: cadetblue; */
     height: 33vw;
     width: 23vw;
+    min-width: 250;
+    min-height: 350;
     position: absolute;
     right: 1vw;
     top: 1vw;
@@ -94,6 +96,12 @@ p {
     font-weight: 300;
     margin: 40px .8vw 0 .8vw;
     text-align: center;
+}
+
+@media (max-width: 1090px) {
+    p {
+        font-size: 12px;
+    }
 }
 
 ul {
