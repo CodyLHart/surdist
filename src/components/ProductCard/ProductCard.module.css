@@ -1,6 +1,7 @@
 .shirtCard {
     /* height: 35vw; */
     width: 60vw;
+    min-width: 300px;
     max-height: 80vh;
     position: fixed;
     background-color: white;
@@ -32,6 +33,7 @@
 .infoImg {
     width: 50vh;
     height: 50vh;
+    min-width: 280px;
     /* position: absolute;
     top: 1vw;
     left: 1vw; */
@@ -58,8 +60,8 @@
     /* background-color: cadetblue; */
     /* height: 33vw; */
     width: 50vw;
-    min-width: 250;
-    min-height: 350;
+    min-width: 300px;
+    /* min-height: 350; */
     /* position: absolute; */
     /* right: 1vw;
     top: 1vw; */
